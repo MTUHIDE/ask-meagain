@@ -1,5 +1,5 @@
-# ask-meanything
-Docker Container Holding our nginx code
+# ask-meagain
+Docker Container Holding our application code
 
 I'll put more information here about running using docker later
 
