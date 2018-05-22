@@ -1,5 +1,3 @@
-FROM nginx
+FROM tiangolo/uwsgi-nginx-flask:python3.6
 
-RUN rm /etc/nginx/nginx.conf
-
-COPY conf /etc/nginx
+COPY ./app /app

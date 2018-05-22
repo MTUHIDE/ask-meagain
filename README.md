@@ -1,6 +1,15 @@
-# ask-meanything
-Docker Container Holding our nginx code
+# ask-meagain
 
-I'll put more information here about running using docker later
+ALOT of work needs to be done here, and this is about as basic as it can get, but here's a starting place
+To run the application you need to:
 
-The long term plan is to use docker compose to run the whole application, probably hosted in this directory
+1.) Install docker, then clone the repo
+2.) (One of the early steps will be to create scripts for this process) Build the docker project
+  "docker build -t name ."
+3.) Run the newly built image
+  "docker run -p 7697:80 name"
+
+You should now be running the application locally on localhost:7697
+
+---Some more notes---
+Currently, the conf folder takes no effect
