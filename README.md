@@ -3,13 +3,13 @@
 ALOT of work needs to be done here, and this is about as basic as it can get, but here's a starting place
 To run the application you need to:
 
-1.) Install docker, then clone the repo
-2.) (One of the early steps will be to create scripts for this process) Build the docker project
-  "docker build -t name ."
-3.) Run the newly built image
-  "docker run -p 7697:80 name"
+1.) Install docker
+2.) Clone the repo
+2.) Run the "start.sh" script to start running the docker container
 
 You should now be running the application locally on localhost:7697
+
+To stop running the container, use "docker stop container-id"
 
 ---Some more notes---
 Currently, the conf folder takes no effect
