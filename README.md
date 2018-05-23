@@ -5,7 +5,7 @@ To run the application you need to:
 
 1.) Install docker
 2.) Clone the repo
-2.) Run the "start.sh" script to start running the docker container
+3.) Run the "start.sh" script to start running the docker container
 
 You should now be running the application locally on localhost:7697
 
