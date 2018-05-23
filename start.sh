@@ -9,6 +9,12 @@ check=`docker image ls | grep $imageName | cut -d' ' -f27`
 if [ $check ]
 then
   echo "Docker build already exists"
+  if [[ $1 == "-r" ]] # Checking for "-r flag for the purposes of rebuilding the project"
+  then
+    echo "Rebuilding docker image"
+    docker rmi -f $(docker image ls -q)
+    docker build -t ask:$imageName .
+  fi
 else
   echo "Creating docker build"
   docker build -t ask:$imageName .

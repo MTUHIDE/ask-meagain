@@ -9,7 +9,10 @@ To run the application you need to:
 
 You should now be running the application locally on localhost:7697
 
+Add the flag "-r" on the start script to rebuild the image before running the container
+
 To stop running the container, use "docker stop container-id"
+You gotta stop the container to use the rebuild tag on start.sh
 
 ---Some more notes---
 Currently, the conf folder takes no effect
