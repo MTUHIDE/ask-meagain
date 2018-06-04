@@ -1,0 +1,63 @@
+
+body{
+    margin: 0 0 0 0;
+}
+
+#usgLogo{
+    width:75%;
+    height: 75%;
+    z-index: -1;
+
+}
+
+#banner{
+    background-color: #ffcd00;
+    height:150px;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #ffffff;
+    font-size: 40pt;
+    text-align:center;
+    vertical-align: middle;
+    box-shadow: 0px 5px 10px #dadada;
+}
+
+#container{
+    height: calc(100% - 150px);
+}
+
+.center{
+    top: 50%; left: 50%;
+    position: absolute;
+    transform: translate(-50%,-50%);
+}
+
+.h1 {
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+}
+
+.button{
+    height: 100px;
+
+    background-color: #FFFFFF;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    color: #FFFFFF;
+    font-size: 32pt;
+    font-weight: bold;
+    text-align:center;
+    vertical-align: middle;
+    margin-top:30px;
+    margin-bottom:30px;
+    padding-left:  50px;
+    padding-right: 50px;
+    display: inline-block;
+    border: thick solid #ffcd00;
+    border-width: 5px;
+    outline: thick solid #000000;
+    outline-width: 2px;
+    text-shadow: -.75px 0 #000000,0 .75px #000000,.75px 0 #000000,0 -.75px #000000;
+    padding-top: 30px;"
+    /*
+    box-shadow: 0px 7px 10px #dadada;
+
+    */
+}
