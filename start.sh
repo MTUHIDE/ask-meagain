@@ -13,7 +13,7 @@ check=`docker image ls | grep $imageName | cut -d' ' -f27`
 if [ $check ]
 then
   echo "Docker build already exists"
-  if [[ $1 == "-r" ]] # Checking for "-r" flag - rebuild the project
+  if [[ "${1:-}" =~ ^-r|--rebuild$ ]]; # Checking for "-r" flag - rebuild the project
   then
     echo "Checking to make sure docker is stopped"
     if [ `docker ps -q` ]
@@ -35,5 +35,14 @@ echo " "
 sleep 1
 
 # Run docker container from above image
-echo "Running docker container built above"
-docker run -d -p 7697:80 ask:$imageName
+if [[ "${1:-}" =~ ^-l|--legacy$ ]];
+then
+    echo "Running docker container built above"
+    docker run -d -p 7697:80 ask:$imageName
+else
+    echo "Starting docker container with automatic updates"
+    echo "DO NOT USE THIS FOR PRODUCTION"
+    echo "For production, run with --legacy instead"
+
+    docker run -d -p 7697:80 -v $(pwd)/app:/app -e FLASK_APP=app/main.py -e FLASK_DEBUG=1 ask:$imageName flask run --host=0.0.0.0 --port=80
+fi
