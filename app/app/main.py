@@ -10,7 +10,10 @@ def hello():
 def menu():
     return render_template('menu.html')
 
+@app.route("/SurveyLandingPage/")
+def surveyLandingPage():
+    return render_template('SurveyLandingPage.html')
 
 if __name__ == "__main__":
     # Only for debugging while developing
-    app.run(host='0.0.0.0', debug=True, port=80)
+    app.run(host='127.0.0.1', debug=True, port=7697)
