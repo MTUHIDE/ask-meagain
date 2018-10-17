@@ -2,21 +2,32 @@ from flask import Flask, render_template
 
 app = Flask(__name__)
 
+
 @app.route("/")
 def hello():
     return "Hello World from HIDE's new solution"
+
+
+@app.errorhandler(404)
+@app.route("/error/")
+def error():
+    return render_template('error.html')
+
 
 @app.route("/menu/")
 def menu():
     return render_template('menu.html')
 
-@app.route("/SurveyLandingPage/")
-def surveyLandingPage():
-    return render_template('SurveyLandingPage.html')
 
 @app.route("/ResultsPage/")
 def resultsPage():
     return render_template('ResultsPage.html')
+
+
+@app.route("/SurveyLandingPage/")
+def surveyLandingPage():
+    return render_template('SurveyLandingPage.html')
+
 
 if __name__ == "__main__":
     # Only for debugging while developing
