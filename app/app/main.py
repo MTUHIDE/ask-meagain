@@ -10,13 +10,14 @@ def hello():
 def menu():
     return render_template('menu.html')
 
-@app.route("/SurveyLandingPage/")
-def surveyLandingPage():
-    return render_template('SurveyLandingPage.html')
 
 @app.route("/ResultsPage/")
 def resultsPage():
     return render_template('ResultsPage.html')
+
+@app.route("/SurveyLandingPage/")
+def surveyLandingPage():
+    return render_template('SurveyLandingPage.html')
 
 if __name__ == "__main__":
     # Only for debugging while developing
