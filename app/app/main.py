@@ -8,10 +8,10 @@ def hello():
     return "Hello World from HIDE's new solution"
 
 
+@app.errorhandler(500)
 @app.errorhandler(404)
-@app.route("/error/")
-def error():
-    return render_template('error.html')
+def errorPage(error):
+    return render_template('error.html', error=error)
 
 
 @app.route("/menu/")
