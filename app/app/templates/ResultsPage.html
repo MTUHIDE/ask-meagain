@@ -42,6 +42,18 @@
       data.addColumn('string', 'Question Options');
       data.addColumn('number', 'Number of Votes');
 
+      /*
+      row1 = [document.getElementById("option1").innerText, Number(document.getElementById("result1").innerText)];
+        row2 = [document.getElementById("option2").innerText, Number(document.getElementById("result2").innerText)];
+        row3 = [document.getElementById("option3").innerText, Number(document.getElementById("result3").innerText)];
+        row4 = [document.getElementById("option4").innerText, Number(document.getElementById("result4").innerText)];
+        data.addRows([
+            row1,
+            row2,
+            row3,
+            row4
+        ]);*/
+
       data.addRows([
         ['Option 1',145],
         ['Option 2',53],
@@ -72,6 +84,17 @@
 
     <p id="questionList" >
         This is where the questions would go. These items are in here as a place holder.
+
+    <!--
+        <h2 id="QuestionText" >${question}</h2>
+                <ol style="float: left; font-size: 32px;">
+                    <li id="option1" >${option1}</li>
+                    <li id="option2" >${option2}</li>
+                    <li id="option3" >${option3}</li>
+                    <li id="option4" >${option4}</li>
+                </ol>
+        -->
+
         <br>
         <a href="/" target="_parent">Question 1</a>
         <br>
@@ -101,7 +124,7 @@
         <br>
     </p>
 
-    <a href="/" target="_parent">
+    <a href='{{ url_for('menu') }}' target="_parent">
         <button class="button" type="button" >Back to Home</button>
     </a>
 
