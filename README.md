@@ -30,7 +30,16 @@ Alot of modifications have been made to start.sh since it existed as just a "doc
     * I expect almost no-one will ever have to use this, but you never know
 * Please use only one tag at a time :)
 
+### SQL/DB Notes
+* Currently the SQL scripts are configured to work with SQLite3. I believe the only difference in the scripts is that SQLite uses "AUTOINCREMENT" while all(?) other flavors of SQL use "AUTO_INCREMENT". 
+    * To use the scripts, run sqlite3 in the directory with the scripts, make sure you are connected to a/the database, and just type ".read scriptname.sql" and it should execute.
+    * buildTables.sql builds the 3 tables that we will be using.
+    * dropTables.sql gets rid of all the tables. Try to use this instead of doing it manually because there is some science to which order you drop the tables in.
+    * samplePopulate.sql puts 3 sample questions in, each with 4 choices and 7 premade responses.
+
 ### ---Some more notes---
 * Currently, the conf folder takes no effect
 * Built using notes on the Docker image page [here](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/ "Image Documentation")
 * To add nginx configurations, Dockerfile modifications need to be made, copy .conf files to /etc/nginx/conf.d/
+
+
