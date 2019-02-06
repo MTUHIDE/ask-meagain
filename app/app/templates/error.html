@@ -5,15 +5,16 @@
     <meta charset="UTF-8">
     <title>Error Page</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">
 </head>
-<body style="background-color: #8c8c8c">
+<body>
 <div align = "center">
- <h1 style="font-size: 40px; font-family: 'Roboto', sans-serif;">
+ <h1 style="font-size: 40px;">
     Whoops, you must've got lost out here!
  </h1>
- <h2 style="font-size: 20px; font-family: 'Roboto', sans-serif;">{{ error }}</h2>
+ <h2 style="font-size: 20px;">{{ error }}</h2>
  <h4>
-     <a href='{{ url_for('menu') }}' style="font-size: 15px; font-family: 'Roboto', sans-serif;">
+     <a href='{{ url_for('menu') }}' style="font-size: 15px;">
          Quick! <br> Let's head back to safety!
      </a>
  </h4>

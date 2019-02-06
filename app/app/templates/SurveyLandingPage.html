@@ -5,21 +5,19 @@
     <meta charset="UTF-8">
     <title>Survey Landing Page</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-    <style>
-        a:link {color: #000000}
-        a:visited {color: #000000}
-    </style>
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">
 </head>
-<body style="background-color: #8c8c8c">
+<body>
+
     <!-- Change the link from menu to the beginning of the survey  -->
     <a href='{{ url_for('menu') }}' style = "text-decoration: none; text-decoration-color: black;">
 
         <div align = "center">
-         <h1 style="font-size: 80px; font-family: 'Roboto', sans-serif;">
+         <h1 style="font-size: 80px;">
             Welcome!
          </h1>
-         <img src="../static/assets/images/Question-mark-blackandwhite.png" style="width: 30%; height: 20vw;">
-         <h1 style="font-size: 80px; font-family: 'Roboto', sans-serif;">
+         <img src="../static/assets/images/Question-mark-blackandwhite.png" class="largeSquareImage">
+         <h1 style="font-size: 80px;">
             Tap to Begin
          </h1>
         </div>
