@@ -33,6 +33,9 @@ def surveyLandingPage():
 def thankYouPage():
     return render_template('ThankYouPage.html')
 
+@app.route("/surveyQuestion/")
+def surveyQuestion():
+    return render_template('surveyQuestion.html')
 
 if __name__ == "__main__":
     # Only for debugging while developing
