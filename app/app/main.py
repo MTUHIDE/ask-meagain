@@ -18,6 +18,9 @@ def errorPage(error):
 def menu():
     return render_template('menu.html')
 
+@app.route("/alterQuestion/")
+def alterQuestion():
+    return render_template('alterQuestion.html')
 
 @app.route("/ResultsPage/")
 def resultsPage():
