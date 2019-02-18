@@ -26,13 +26,6 @@ div.rectangle {
         width: 20vw;
     }
 
-div.smallRectangle {
-	background-color: #ffffff;
-	border-radius: 2.5vh;
-	height: 5vh;
-	width: 3vw;
-}
-
 img.squareImage {
 	margin:2.5vh;
 	height: 15vh;
@@ -43,6 +36,12 @@ img.largeSquareImage {
 	margin:2.5vh;
 	height: 30vh;
 	width: 20vw;
+}
+
+img.questionIcon {
+	float: right;
+	height: 50px;
+	width: 50px;
 }
 
 h1 {
@@ -202,7 +201,7 @@ button.button {
 
 .modal-header {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: #808080;
   color: white;
 }
 
@@ -210,6 +209,6 @@ button.button {
 
 .modal-footer {
   padding: 2px 16px;
-  background-color: #5cb85c;
+  background-color: #808080;
   color: white;
 }
