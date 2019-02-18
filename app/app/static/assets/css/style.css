@@ -22,13 +22,13 @@ div.rectangle {
         background-color: #ffffff;
         margin:2.5vh;
         border-radius: 2.5vh;
-        height: 30vh;
+        height: 35vh;
         width: 20vw;
     }
 
 img.squareImage {
 	margin:2.5vh;
-	height: 15vh;
+	height: 17vh;
 	width: 10vw;
 }
 
