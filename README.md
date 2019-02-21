@@ -17,7 +17,7 @@ Docker is confusing, and hopefully once we get it right we won't have to mess wi
 * View all running containers: `# docker ps`
   * To view all containers on the system `# docker ps -a`
   * To view all docker images on the system `# docker image ls -a`
-* (Coming soon) To completely clean up everything docker has cached on your system, run: `# bash nukedocker.sh`
+* Fan of the Youtube Channel, "Whats Inside"? Use `# docker exec -it <container-ID or name> /bin/bash` to open a shell inside our container
 
 ### Specific Notes for start.sh
 Alot of modifications have been made to start.sh since it existed as just a "docker run" command, so I'm listing how to use it here.
@@ -31,15 +31,10 @@ Alot of modifications have been made to start.sh since it existed as just a "doc
 * Please use only one tag at a time :)
 
 ### SQL/DB Notes
-* Currently the SQL scripts are configured to work with SQLite3. I believe the only difference in the scripts is that SQLite uses "AUTOINCREMENT" while all(?) other flavors of SQL use "AUTO_INCREMENT". 
-    * To use the scripts, run sqlite3 in the directory with the scripts, make sure you are connected to a/the database, and just type ".read scriptname.sql" and it should execute.
-    * buildTables.sql builds the 3 tables that we will be using.
-    * dropTables.sql gets rid of all the tables. Try to use this instead of doing it manually because there is some science to which order you drop the tables in.
-    * samplePopulate.sql puts 3 sample questions in, each with 4 choices and 7 premade responses.
+* Sqlite3 support has now been added via SQLAlchemy. Documentation on how to use SQLAlchemy here: http://flask-sqlalchemy.pocoo.org/2.3/
+* Bootstrapped test data coming soon
 
 ### ---Some more notes---
 * Currently, the conf folder takes no effect
 * Built using notes on the Docker image page [here](https://hub.docker.com/r/tiangolo/uwsgi-nginx-flask/ "Image Documentation")
 * To add nginx configurations, Dockerfile modifications need to be made, copy .conf files to /etc/nginx/conf.d/
-
-
