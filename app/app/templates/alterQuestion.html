@@ -1,7 +1,129 @@
 <html>
     <head>
-        <title>Alter Question</title>
+        <style>
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: rgb(160, 21, 21); /* Fallback color */
+                background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+            .modal-content {
+                background-color: rgb(57, 68, 216);
+                margin: 15% auto; /* 15% from the top and centered */
+                padding: 20px;
+                border: 1px solid #888;
+                width: 80%; /* Could be more or less, depending on screen size */
+            }
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
 
-        <h1 style="text-align: center">This is the alter question page.</h1>
+            .close:hover,
+            .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            body {
+                overflow: scroll;
+            }
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 5px;
+                text-align: center;
+            }
+            table {
+                margin-left: auto;
+                margin-right: auto;
+                border-spacing: 5px;
+            }
+            table#t01 tr:nth-child(even) {
+                background-color: lightgray
+            }
+            table#t01 tr:nth-child(odd) {
+                background-color: white
+            }
+        </style>
+
+        <script>
+            var modal = document.getElementById('myModal');
+            var btn = document.getElementsByClassName("editbtn");
+            var span = document.getElementsByClassName("close")[0];
+
+            btn.onclick = function() {
+                modal.style.display = "block";
+            }
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+
+            window.onclick = function(event) {
+                if(event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
     </head>
+    <body>
+        <title>Alter Question</title>
+        <h1 style="text-align: center">Questions:</h1>
+        <table style="width:50% " id="t01">
+            <tr>
+                <th>Question Number</th>
+                <th>Question Title</th>
+                <th>Answer #1</th>
+                <th>Answer #2</th>
+                <th>Answer #3</th>
+                <th>Answer #4</th>
+                <th>Edit Content</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>What is your name?</td>
+                <td>William</td>
+                <td>Will</td>
+                <td>Bill</td>
+                <td>Guillermo</td>
+                <td><button class="editbtn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>What is your quest?</td>
+                <td>To make something</td>
+                <td>To eat something</td>
+                <td>Water bottle</td>
+                <td>Wallet</td>
+                <td><button class="editbtn">Edit</button></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>What is your favorite color?</td>
+                <td>Red</td>
+                <td>Orange</td>
+                <td>Brown</td>
+                <td>Blue</td>
+                <td><button class="editbtn">Edit</button></td>
+            </tr>
+        </table>
+        
+        <div id="myModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <p>SOME TEXT</p>
+            </div>
+        </div>
+    </body>
 </html>
