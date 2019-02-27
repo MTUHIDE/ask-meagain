@@ -1,7 +1,45 @@
 from flask import Flask, render_template
+from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 
+# Defines our database connections
+app.config['SQLALCHEMY_BINDS'] = {
+    'testQ':    'sqlite:////app/dbFiles/testing.db',
+    'testC':    'sqlite:////app/dbFiles/testing.db',
+    'testR':    'sqlite:////app/dbFiles/testing.db'
+    # Add db files in the format above for actually holding production data
+    }
+db = SQLAlchemy(app)
+
+# Creates our schema
+# Sqlite3 only supports one schema per db
+# The three test classes are for tables in one schema
+# schema may be moved away from this file later - Max S.
+class TestQuestions(db.Model):
+    __bind_key__ = 'testQ'
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    questionText = db.Column(db.Text)
+    active = db.Column(db.Boolean, default=True)
+    choices = db.relationship('TestChoices', backref='testQ')
+    responces = db.relationship('TestResponses', backref='testR')
+
+class TestChoices(db.Model):
+    __bind_key__ = 'testC'
+    qid = db.Column(db.Integer, db.ForeignKey('test_questions.id'))
+    choiceText = db.Column(db.Text)
+    choiceId = db.Column(db.Integer, primary_key=True, autoincrement=True)
+
+class TestResponses(db.Model):
+    __bind_key__ = 'testR'
+    resId = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    qid = db.Column(db.Integer, db.ForeignKey('test_questions.id'))
+    responce = db.Column(db.Integer)
+    dt = db.Column(db.DateTime)
+    studentId = db.Column(db.Integer)
+
+# Creates db & schema. Queries now ready to be made
+db.create_all()
 
 @app.route("/")
 def hello():
