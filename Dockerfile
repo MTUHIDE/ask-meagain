@@ -8,4 +8,4 @@ COPY ./app /app
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get install -y sqlite3 libsqlite3-dev
-RUN pip install flask_sqlalchemy
+RUN pip install flask_sqlalchemy flask_bootstrap

@@ -1,7 +1,9 @@
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
+from flask_bootstrap import Bootstrap
 
 app = Flask(__name__)
+Bootstrap(app)
 
 # Defines our database connections
 app.config['SQLALCHEMY_BINDS'] = {
@@ -43,7 +45,7 @@ db.create_all()
 
 @app.route("/")
 def hello():
-    return "Hello World from HIDE's new solution"
+    return render_template('survey.html')
 
 
 @app.errorhandler(500)
