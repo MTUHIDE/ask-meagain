@@ -76,7 +76,7 @@ def surveyLandingPage():
 
 @app.route("/ThankYouPage/")
 def thankYouPage():
-    return render_template('ThankYouPage.html')
+    return render_template('thankYou.html')
 
 @app.route("/survey", methods=['GET', 'POST'])
 def surveyQuestion():
@@ -87,7 +87,7 @@ def surveyQuestion():
             flash('ERR')
             return render_template('survey.html', form = form)
         else:
-            return render_template('ThankYouPage.html')
+            return render_template('thankYou.html')
     elif request.method == 'GET':
         return render_template('survey.html', form = form)
 
