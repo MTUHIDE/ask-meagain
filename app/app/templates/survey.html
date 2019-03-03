@@ -1,9 +1,18 @@
-{% extends 'base.html' %}
+{%- extends 'base.html' %}
 
-{% block header %}
-    <h1>{% block title %}Test{% endblock %}</h1>
-{% endblock %}
+{% block title %}Survey Question{% endblock %}
 
 {% block content %}
-    <p>This is a test</p>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        {{ form.question() }}
+        <button type="button" class="btn btn-primary">
+            {{ form.answer1() }}
+        </button>
+        <p>
+            {{ form.answer2() }}
+            {{ form.answer3() }}
+            {{ form.answer4() }}
+        </p>
+    </form>
 {% endblock %}

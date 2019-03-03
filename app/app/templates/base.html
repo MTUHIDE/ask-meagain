@@ -1,15 +1,16 @@
-<!doctype html>
-<title>{% block title %}{% endblock %} - Ask</title>
-<nav>
-    <h1>Ask</h1>
-</nav>
-<section class="content">
-    <header>
-        {% block header %}{% endblock %}
-    </header>
-    {% for message in get_flashed_messages() %}
-    <div class="flash">{{ message }}</div>
-    {% endfor %}
-    {% block content %}{% endblock %}
-</section>
+{%- extends "bootstrap/base.html" %}
+{% block title %} - Ask{% endblock %}
+
+{% import "bootstrap/fixes.html" as fixes %}
+
+{% block head %}
+{{ super() }}
+{{ fixes.ie8() }}
+{%- endblock %}
+
+{% block navbar %}
+    
+{% endblock %}
+
+{% block content %}{% endblock %}
 

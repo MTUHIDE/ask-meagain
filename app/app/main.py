@@ -1,8 +1,10 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
+from app.surveyQuestions import QuestionForm
 
 app = Flask(__name__)
+app.secret_key = "dev_key"
 Bootstrap(app)
 
 # Defines our database connections
@@ -76,9 +78,19 @@ def surveyLandingPage():
 def thankYouPage():
     return render_template('ThankYouPage.html')
 
-@app.route("/surveyQuestion/")
+@app.route("/survey", methods=['GET', 'POST'])
 def surveyQuestion():
-    return render_template('surveyQuestion.html')
+    form = QuestionForm()
+
+    if request.method == 'POST':
+        if form.validate() == False:
+            flash('ERR')
+            return render_template('survey.html', form = form)
+        else:
+            return render_template('ThankYouPage.html')
+    elif request.method == 'GET':
+        return render_template('survey.html', form = form)
+
 
 if __name__ == "__main__":
     # Only for debugging while developing
