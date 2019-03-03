@@ -71,7 +71,7 @@ def resultsPage():
 
 @app.route("/SurveyLandingPage/")
 def surveyLandingPage():
-    return render_template('SurveyLandingPage.html')
+    return render_template('surveyLanding.html')
 
 
 @app.route("/ThankYouPage/")
