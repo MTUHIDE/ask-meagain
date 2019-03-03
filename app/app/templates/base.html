@@ -1,5 +1,5 @@
 {%- extends "bootstrap/base.html" %}
-{% block title %} - Ask{% endblock %}
+{% block title %}{% endblock %}
 
 {% import "bootstrap/fixes.html" as fixes %}
 
@@ -8,9 +8,14 @@
 {{ fixes.ie8() }}
 {%- endblock %}
 
+{% block styles %}
+    {{ super() }}
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">
+{% endblock %}
+
 {% block navbar %}
     
 {% endblock %}
 
 {% block content %}{% endblock %}
-
