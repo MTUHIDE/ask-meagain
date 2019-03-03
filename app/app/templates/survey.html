@@ -5,14 +5,12 @@
 {% block content %}
     <form action="" method="post" novalidate>
         {{ form.hidden_tag() }}
-        {{ form.question() }}
-        <button type="button" class="btn btn-primary">
-            {{ form.answer1() }}
-        </button>
+        {{ form.question.label() }}
         <p>
-            {{ form.answer2() }}
-            {{ form.answer3() }}
-            {{ form.answer4() }}
+            {{ form.answer1(class_="btn btn-primary") }}
+            {{ form.answer2(class_="btn btn-primary") }}<br />
+            {{ form.answer3(class_="btn btn-primary") }}
+            {{ form.answer4(class_="btn btn-primary") }}
         </p>
     </form>
 {% endblock %}

@@ -47,7 +47,7 @@ db.create_all()
 
 @app.route("/")
 def hello():
-    return render_template('survey.html')
+    return render_template('menu.html')
 
 
 @app.errorhandler(500)
