@@ -1,0 +1,13 @@
+{%- extends 'base.html' %}
+
+{% block title %}Thank You - Ask{% endblock %}
+
+{% block content %}
+<a href="{{url_for('menu')}}" style="text-decoration: none">
+<div align="center">
+    <h1 style="font-size: 80px">Thank You!</h1>
+    <img src="{{url_for('static', filename='assets/images/Question-mark-blackandwhite.png')}}" class="largeSquareImage">
+    <h1 style="font-size: 80px">Your Response Has Been Recorded!</h1>
+</div>
+</a>
+{% endblock %}
