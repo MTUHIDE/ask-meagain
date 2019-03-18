@@ -59,10 +59,11 @@
 
         <script>
             var modal = document.getElementById('myModal');
-            var btn = document.getElementsByClassName("editbtn");
-            var span = document.getElementsByClassName("close")[0];
+            var btn = document.getElementsById("none");
+            var span = document.getElementsById("close")[0];
 
             btn.onclick = function() {
+              alert("Hello");
                 modal.style.display = "block";
             }
 
@@ -97,7 +98,7 @@
                 <td>Will</td>
                 <td>Bill</td>
                 <td>Guillermo</td>
-                <td><button class="editbtn">Edit</button></td>
+                <td><button id = "one">Edit</button></td>
             </tr>
             <tr>
                 <td>2</td>
@@ -106,7 +107,7 @@
                 <td>To eat something</td>
                 <td>Water bottle</td>
                 <td>Wallet</td>
-                <td><button class="editbtn">Edit</button></td>
+                <td><button id = "two">Edit</button></td>
             </tr>
             <tr>
                 <td>3</td>
@@ -115,10 +116,10 @@
                 <td>Orange</td>
                 <td>Brown</td>
                 <td>Blue</td>
-                <td><button class="editbtn">Edit</button></td>
+                <td><button id = "three">Edit</button></td>
             </tr>
         </table>
-        
+
         <div id="myModal" class="modal">
             <div class="modal-content">
                 <span class="close">&times;</span>
