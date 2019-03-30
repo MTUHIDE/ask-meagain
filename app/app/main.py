@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from app.surveyQuestions import QuestionForm
-
+from flask import jsonify
 app = Flask(__name__)
 app.secret_key = "dev_key"
 Bootstrap(app)
@@ -66,8 +66,18 @@ def alterQuestion():
 
 @app.route("/ResultsPage/")
 def resultsPage():
-    return render_template('ResultsPage.html')
+    questions = TestQuestions.query.filter_by(active=True).all();
+    return render_template('ResultsPage.html', questions = questions)
 
+@app.route("/QuestionResultsPage/<id>")
+def questionResultPage(id):
+    data = TestResponses.query.filter_by(qid = id).first() 
+    return render_template('questionResults.html')
+
+@app.route("/questionData/<id>")
+def questionData(id):
+    data = TestResponses.query.filter_by(qid = id).all()
+    return jsonify(data)
 
 @app.route("/SurveyLandingPage/")
 def surveyLandingPage():
