@@ -12,13 +12,17 @@
 <!-- Trigger/Open The Modal -->
 
 <div align = "center">
-    <ul>
-    {% for q in questions %}
-        <li>
-            <a href="{{url_for('questionResultPage',id = q.id)}}">Question {{q.id}}</a>
-        </li>
-    {% endfor %}
-    </ul>
+    {% if questions %}
+        <ul>
+        {% for q in questions %}
+            <li>
+                <a href="{{url_for('questionResultPage',id = q.id)}}">Question {{q.id}}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <h1> No questions in the Database </h1>
+    {% endif %}
 
     <a href='{{ url_for('menu') }}' target="_parent">
         <button class="button" type="button" >Back to Home</button>
