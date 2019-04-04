@@ -16,7 +16,11 @@ db = SQLAlchemy(app)
 # Sqlite3 only supports one schema per db
 # The three test classes are for tables in one schema
 from ask_meagain.models import TestResponses, TestChoices, TestQuestions
+from ask_meagain.blueprints.survey import survey
+from ask_meagain.blueprints.admin import admin
 
+app.register_blueprint(survey)
+app.register_blueprint(admin)
 # Creates db & schema. Queries now ready to be made
 db.create_all()
 
@@ -29,52 +33,6 @@ def hello():
 @app.errorhandler(404)
 def errorPage(error):
     return render_template('error.html', error=error)
-
-
-@app.route("/menu/")
-def menu():
-    return render_template('menu.html')
-
-@app.route("/alterQuestion/")
-def alterQuestion():
-    return render_template('alterQuestion.html')
-
-@app.route("/ResultsPage/")
-def resultsPage():
-    questions = TestQuestions.query.filter_by(active=True).all();
-    return render_template('ResultsPage.html', questions = questions)
-
-@app.route("/QuestionResultsPage/<id>")
-def questionResultPage(id):
-    data = TestResponses.query.filter_by(qid = id).first() 
-    return render_template('questionResults.html')
-
-@app.route("/questionData/<id>")
-def questionData(id):
-    data = TestResponses.query.filter_by(qid = id).all()
-    return jsonify(data)
-
-@app.route("/SurveyLandingPage/")
-def surveyLandingPage():
-    return render_template('surveyLanding.html')
-
-
-@app.route("/ThankYouPage/")
-def thankYouPage():
-    return render_template('thankYou.html')
-
-@app.route("/survey", methods=['GET', 'POST'])
-def surveyQuestion():
-    form = QuestionForm()
-
-    if request.method == 'POST':
-        if form.validate() == False:
-            flash('ERR')
-            return render_template('survey.html', form = form)
-        else:
-            return render_template('thankYou.html')
-    elif request.method == 'GET':
-        return render_template('survey.html', form = form)
 
 
 if __name__ == "__main__":
