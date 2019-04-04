@@ -8,7 +8,7 @@ app.secret_key = "dev_key"
 Bootstrap(app)
 
 # Defines our database connections
-SQLALCHEMY_DATABASE_URI='sqlite:////app/dbFiles/testing.db'
+app.config['SQLALCHEMY_DATABASE_URI']='sqlite:////app/dbFiles/testing.db'
 db = SQLAlchemy(app)
 
 # Creates our schema
