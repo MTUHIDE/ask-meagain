@@ -7,6 +7,11 @@ admin = Blueprint('admin',__name__,template_folder='templates')
 def alterQuestion():
     return render_template('alterQuestion.html')
 
+@admin.route("/createQuestion/")
+def createQuestion():
+    form = newQuestionForm()
+    return render_template("create.html",form=form)
+
 @admin.route("/ResultsPage/")
 def resultsPage():
     questions = TestQuestions.query.filter_by(active=True).all();

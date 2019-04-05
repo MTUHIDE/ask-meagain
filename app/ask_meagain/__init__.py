@@ -19,13 +19,13 @@ from ask_meagain.models import TestResponses, TestChoices, TestQuestions
 from ask_meagain.blueprints.survey import survey
 from ask_meagain.blueprints.admin import admin
 
-app.register_blueprint(survey)
-app.register_blueprint(admin)
+app.register_blueprint(survey,url_prefix='/survey')
+app.register_blueprint(admin,url_prefix='/admin')
 # Creates db & schema. Queries now ready to be made
 db.create_all()
 
 @app.route("/")
-def hello():
+def index():
     return render_template('menu.html')
 
 
