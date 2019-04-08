@@ -1,8 +1,15 @@
 {%- extends 'base.html' %}
+{% from "macros.html" import render_modal %}
 
 {% block title %}Menu - Ask{% endblock %}
 
 {% block content %}
+
+{{ render_modal(
+    "Menu Page",
+    "This is the page that is the menu for the website. It contains 2 buttons to go the the regular survey or to go to the admin interface."
+ ) }}
+
 <div align="center">
     <div style="width: fit-content">
         <a href="{{url_for('surveyLandingPage')}}" target='_parent'>
@@ -19,4 +26,5 @@
         </a>
     </div>
 </div>
+
 {% endblock %}

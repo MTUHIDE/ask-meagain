@@ -2,18 +2,25 @@ from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
 from app.surveyQuestions import QuestionForm
+# Windows People Need to Comment it Out
+#from app.surveyQuestions import QuestionForm
+from app.app.surveyQuestions import QuestionForm
 
 app = Flask(__name__)
 app.secret_key = "dev_key"
 Bootstrap(app)
 
-# Defines our database connections
+#Defines our database connections
 app.config['SQLALCHEMY_BINDS'] = {
-    'testQ':    'sqlite:////app/dbFiles/testing.db',
-    'testC':    'sqlite:////app/dbFiles/testing.db',
-    'testR':    'sqlite:////app/dbFiles/testing.db'
+     'testQ':    'sqlite:////app/dbFiles/testing.db',
+     'testC':    'sqlite:////app/dbFiles/testing.db',
+     'testR':    'sqlite:////app/dbFiles/testing.db'
     # Add db files in the format above for actually holding production data
-    }
+     }
+
+# Needed for db access for Windows People
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///testing.db'
+
 db = SQLAlchemy(app)
 
 # Creates our schema
