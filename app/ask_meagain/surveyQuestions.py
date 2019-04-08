@@ -1,8 +1,8 @@
-from flask_wtf import Form
+from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField
 
 
-class QuestionForm(Form):
+class QuestionForm(FlaskForm):
     question = StringField("Question 1")
     answer1 = SubmitField("Answer 1")
     answer2 = SubmitField("Answer 2")
