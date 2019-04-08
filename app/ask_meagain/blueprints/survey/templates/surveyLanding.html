@@ -5,12 +5,7 @@
 
 {% block content %}
 
-    {{ render_modal(
-    "Survey Landing Page",
-    "This is a page where stuff happens."
- ) }}
-
-    <a href="{{ url_for('surveyQuestion') }}" style="text-decoration: none">
+    <a href="{{ url_for('survey.surveyQuestion') }}" style="text-decoration: none">
         <div align="center">
             <h1 style="font-size: 80px">Welcome!</h1>
             <img src="{{ url_for('static', filename='assets/images/Question-mark-blackandwhite.png') }}" class="largeSquareImage">

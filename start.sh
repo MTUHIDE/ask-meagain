@@ -44,5 +44,5 @@ else
     echo "DO NOT USE THIS FOR PRODUCTION"
     echo "For production, run with --legacy instead"
 
-    docker run -d -p 7697:80 -v $(pwd)/app:/app -e FLASK_APP=app/main.py -e FLASK_DEBUG=1 ask:$imageName flask run --host=0.0.0.0 --port=80
+    docker run -d -p 7697:80 -v $(pwd)/app:/app -e FLASK_APP=ask_meagain/ -e FLASK_DEBUG=1 ask:$imageName flask run --host=0.0.0.0 --port=80
 fi
