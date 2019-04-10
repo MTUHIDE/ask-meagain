@@ -5,6 +5,15 @@
 
 Test
 {% if form %}
+   {% call macros.render_form(form,action_url=url_for('admin.createQuestion')) %} 
+    {{macros.render_field(form.question,placeholder="Question")}}
+    {{macros.render_field(form.optionOne,placeholder="optionOne")}}
+    {{macros.render_field(form.optionTwo,placeholder="optionTwo")}}
+    {{macros.render_field(form.optionThree,placeholder="optionThree")}}
+    {{macros.render_field(form.optionFour,placeholder="optionFour")}}
+{% endcall %}
+    
+   
    the form is passed in 
 {% endif %}
 {% endblock %}

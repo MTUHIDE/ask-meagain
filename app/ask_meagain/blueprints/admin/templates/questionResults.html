@@ -14,7 +14,7 @@
 
     function drawBasic() {
         var jsonData = $.ajax({
-            url: "{{url_for('questionData',id=id)}}",
+            url: "{{url_for('admin.questionData',id=id)}}",
             dataType: "json",
             async: false,
         }).responseText;
@@ -36,7 +36,7 @@
 {% endblock %}
 
 {% block body %}
-
+{{question.questionText}}
 <!-- Trigger/Open The Modal -->
 <img src="../static/assets/images/Icon-round-Question_mark.svg.png" id="myBtn" class="questionIcon" onclick="notify()">
 
