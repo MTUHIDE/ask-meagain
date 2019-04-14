@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_bootstrap import Bootstrap
-from ask_meagain.surveyQuestions import QuestionForm
 from flask import jsonify
 
 app = Flask(__name__)
