@@ -1,4 +1,4 @@
-from flask import Blueprint,render_template,request
+from flask import Blueprint,render_template,request, jsonify
 from ask_meagain.models import TestResponses, TestChoices, TestQuestions
 from ask_meagain.blueprints.admin.adminForms import newQuestionForm
 from ask_meagain import db
@@ -45,5 +45,5 @@ def questionResultPage(id):
 @admin.route("/questionData/<id>")
 def questionData(id):
     data = TestResponses.query.filter_by(qid = id).all()
-    printf(jsonify(data))
+    print(jsonify(data))
     return jsonify(data)

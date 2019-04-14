@@ -1,10 +1,13 @@
-{% extends "bootstrap/base.html" %}
+{% extends "base.html" %}
 {% block title %}Things {% endblock %}
 
 {% block head %}
     <title>Results</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
     <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">
+{% endblock %}
+{% block scripts %}
+    {{ super() }}
     <script type="text/javascript" src="{{ url_for('static', filename='assets/javascript/main.js') }}"></script>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
      <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -16,26 +19,31 @@
         var jsonData = $.ajax({
             url: "{{url_for('admin.questionData',id=id)}}",
             dataType: "json",
-            async: false,
+            async: true,
         }).responseText;
+        if( jQuery.isEmptyObject(jsonData)){
+            console.log("no data")
+            $("#chart_div").append(document.createTextNode("No Responses Yet"))
 
-        var data = new google.visualization.DataTable(jsonData);
+        }else{
+            var data = new google.visualization.DataTable(jsonData);
 
 
 
-        var options = {
-            title: 'Voting Results',
-        };
+            var options = {
+                title: 'Voting Results',
+            };
 
-        var chart = new google.visualization.ColumnChart(
-            document.getElementById('chart_div'));
+            var chart = new google.visualization.ColumnChart(
+                document.getElementById('chart_div'));
 
-        chart.draw(data, options);
+            chart.draw(data, options);
+        }
     }
     </script >
 {% endblock %}
 
-{% block body %}
+{% block content %}
 {{question.questionText}}
 <!-- Trigger/Open The Modal -->
 <img src="../static/assets/images/Icon-round-Question_mark.svg.png" id="myBtn" class="questionIcon" onclick="notify()">
