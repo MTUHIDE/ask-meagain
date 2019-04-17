@@ -8,6 +8,9 @@ services:
      - VIRTUAL_HOST=askmtu.com
      - LETSENCRYPT_HOST=askmtu.com
      - LETSENCRYPT_EMAIL=joshuaha@mtu.edu
+    depends_on:
+     - nginxProxy
+     - tls
   nginxProxy:
     image: jwilder/nginx-proxy:alpine
     restart: always
