@@ -1,7 +1,9 @@
 version: '3.7'
 services:
   web:
-    build: ./prodDockerfile
+    build:
+      context: .
+      dockerfile: prodDockerfile
     environment:
      - VIRTUAL_HOST=askmtu.com
      - LETSENCRYPT_HOST=askmtu.com
