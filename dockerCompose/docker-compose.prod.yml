@@ -1,0 +1,37 @@
+version: '3.7'
+services:
+  web:
+    build: ./prodDockerfile
+    environment:
+     - VIRTUAL_HOST=askmtu.com
+     - LETSENCRYPT_HOST=askmtu.com
+     - LETSENCRYPT_EMAIL=joshuaha@mtu.edu
+  nginxProxy:
+    image: jwilder/nginx-proxy:alpine
+    restart: always
+    container_name: proxy
+    labels:
+      com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy: "true"
+    ports:
+     - "80:80"
+     - "443:443"
+    volumes:
+     - /var/run/docker.sock:/tmp/docker.sock:ro
+     - certs:/etc/nginx/certs
+     - vhost:/etc/nginx/vhost.d
+     - html:/usr/share/nginx/html
+  tls:
+    image: jrcs/letsencrypt-nginx-proxy-companion
+    environment:
+     - NGINX_PROXY_CONTAINER=nginxProxy
+     - NGINX_DOCKER_GEN_CONTAINER=nginxProxy
+    volumes:
+     - /var/run/docker.sock:/var/run/docker.sock:ro
+     - certs:/etc/nginx/certs
+     - vhost:/etc/nginx/vhost.d
+     - html:/usr/share/nginx/html
+
+volumes:
+  certs:
+  vhost:
+  html:
