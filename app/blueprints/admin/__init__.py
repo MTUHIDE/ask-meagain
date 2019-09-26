@@ -1,5 +1,5 @@
 from flask import Blueprint,render_template
-from ask_meagain.models import TestResponses, TestChoices, TestQuestions
+from app.models import TestResponses, TestChoices, TestQuestions
 
 admin = Blueprint('admin',__name__,template_folder='templates')
 

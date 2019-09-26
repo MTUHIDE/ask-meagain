@@ -1,4 +1,4 @@
-from ask_meagain import db
+from app import db
 
 class TestQuestions(db.Model):
     __tablename__ = 'testQ'

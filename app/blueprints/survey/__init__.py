@@ -1,5 +1,5 @@
 from flask import Blueprint,render_template,request, flash, redirect, url_for
-from ask_meagain.surveyQuestions import QuestionForm
+from app.surveyQuestions import QuestionForm
 survey = Blueprint('survey',__name__,template_folder='templates')
 
 @survey.route("/")
