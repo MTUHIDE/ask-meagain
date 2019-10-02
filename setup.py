@@ -1,7 +1,7 @@
 from setuptools import setup
 setup(
-    name='ask_meagain',
-    packages=['ask_meagain'],
+    name='app',
+    packages=['app'],
     include_package_data=True,
     install_requires=[
         'flask',
