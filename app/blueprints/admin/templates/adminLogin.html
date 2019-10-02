@@ -1,0 +1,32 @@
+{%- extends 'base.html' %}
+
+{% block title %} Admin Login {% endblock %}
+
+{% block content %}
+    <div align="center">
+        Login
+    </div>
+    <div align="center">
+        <div style="text-align:center">
+            <label>
+                Username
+            </label>
+                <input type = "text" id = "Username" value = "" />
+        </div>
+    </div>
+    <div align="center">
+        <div style="text-align:center">
+            <label>
+                Password
+            </label>
+                <input type = "password" id = "pwd" value = "" />
+        </div>
+    </div>
+    <div align="center">
+        <form action="{{ url_for('admin.alterQuestion') }}">
+            <button type="submit" >
+                Login
+            </button>
+        </form>
+    </div>
+{% endblock %}

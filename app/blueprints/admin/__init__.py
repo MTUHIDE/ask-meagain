@@ -26,3 +26,7 @@ def questionResultPage(id):
 def questionData(id):
     data = TestResponses.query.filter_by(qid = id).all()
     return jsonify(data)
+
+@admin.route("/adminlogin/")
+def adminLoginPage():
+    return render_template('adminLogin.html')
