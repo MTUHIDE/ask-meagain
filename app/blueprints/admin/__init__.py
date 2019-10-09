@@ -1,4 +1,5 @@
 from flask import Blueprint,render_template
+from app.blueprints.admin.adminForms  import newQuestionForm
 from app.models import TestResponses, TestChoices, TestQuestions
 
 admin = Blueprint('admin',__name__,template_folder='templates')

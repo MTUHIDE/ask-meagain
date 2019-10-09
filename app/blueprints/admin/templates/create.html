@@ -3,8 +3,122 @@
 
 {% block content %}
 
-Test
+
 {% if form %}
-   the form is passed in 
+
+    <body>
+
+    <h1 class="text-center">Add a New Question</h1>
+    <br>
+
+    <!--
+        <form action="" method="post" novalidate>
+        example form on survey page
+        <p>
+
+        </p>
+    </form>
+    -->
+
+
+    <form class="text-center">
+
+        <div class="form-group">
+            <div class="col-xs-11">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-4">
+                    <label>Survey To Add Question To:</label>
+                </div>
+                <div class="col-xs-6">
+                    <select class="form-control" name="surveyToAddTo">
+                        <option>(Please select a survey)</option>
+                        <option value="test">test</option>
+                    </select>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-11">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-4">
+                    <label>New Question Title:</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" name="newTitle">
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-11">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-4">
+                    <label>New 1st Choice:</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" name="newFirst">
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-11">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-4">
+                    <label>New 2nd Choice:</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" name="newSecond">
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-11">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-4">
+                    <label>New 3rd Choice:</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" name="newThird">
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-11">
+                <div class="col-xs-1"></div>
+                <div class="col-xs-4">
+                    <label>New 4th Choice:</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="text" class="form-control" name="newFourth">
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <div class="text-center">
+                <div class="col-xs-11">
+                    <button type="submit" class="btn btn-primary">Save Changes</button>
+                </div>
+        </div>
+    </form>
+
+    </body>
+
 {% endif %}
+
 {% endblock %}
