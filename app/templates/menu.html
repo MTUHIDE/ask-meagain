@@ -4,15 +4,15 @@
 
 {% block content %}
 <div align="center">
-    <div style="width: fit-content">
+    <div style="width: 60%;">
         <a href="{{url_for('survey.surveyLandingPage')}}" target='_parent'>
-            <div class="rectangle" style="float:left;">
+            <div class="rectangle">
                 <h1>Take Survey</h1>
                 <img src="{{url_for('static', filename='assets/images/220px-Pictogram_voting_question.svg.png')}}" class="squareImage">
             </div>
         </a>
         <a href="{{ url_for('admin.adminLoginPage') }}" target="_top">
-            <div class="rectangle" style = "float:right;">
+            <div class="rectangle">
                 <h1>Admin Console</h1>
                 <img src="{{url_for('static', filename='assets/images/images.png')}}" class="squareImage">
             </div>
