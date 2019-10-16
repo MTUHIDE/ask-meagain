@@ -19,7 +19,7 @@ def resultsPage():
 
 @admin.route("/QuestionResultsPage/<id>")
 def questionResultPage(id):
-    data = TestResponses.query.filter_by(qid = id).first() 
+    data = TestResponses.query.filter_by(qid = id).first()
     return render_template('questionResults.html')
 
 @admin.route("/questionData/<id>")
@@ -30,3 +30,7 @@ def questionData(id):
 @admin.route("/adminlogin/")
 def adminLoginPage():
     return render_template('adminLogin.html')
+
+@admin.route("/admindashboard/")
+def adminDashboardPage():
+    return render_template('adminDashboard.html')

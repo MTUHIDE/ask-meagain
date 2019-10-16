@@ -1,0 +1,60 @@
+{%- extends 'base.html' %}
+
+{% block title %} Admin Login {% endblock %}
+{% block content %}
+    <div align="right">
+        <div style="width: fit-content">
+            <div align="center" style ="border-style: dotted; border-width: 10px; border-color: #8c8c8c" >
+                <form action="{{ url_for('admin.adminLoginPage') }}">
+                <button type="submit"  >
+                Logout
+                </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div align="center">
+        <div style="width: fit-content">
+            <a href="{{url_for('admin.alterQuestion')}}" target='_parent'>
+                <div class="rectangle" style="float:right;overflow: auto">
+                    <h1>Alter Question</h1>
+                    <img src="{{url_for('static', filename='assets/images/images.png')}}" class="squareImage">
+                </div>
+            </a>
+            <a href="{{ url_for('admin.resultsPage') }}" target="_top">
+                <div class="rectangle" style = "float:left;overflow: auto">
+                    <h1>Results</h1>
+                    <img src="{{url_for('static', filename='assets/images/images.png')}}" class="squareImage">
+                </div>
+            </a>
+            <a href="{{ url_for('admin.createQuestion') }}" target="_top">
+                <div class="rectangle" style = "float: left; overflow: auto">
+                    <h1>Create Question</h1>
+                    <img src="{{url_for('static', filename='assets/images/images.png')}}" class="squareImage">
+                </div>
+            </a>
+            <a href="{{ url_for('admin.createQuestion') }}" target="_top">
+                <div class="rectangle" style = "float:right; overflow: auto">
+                    <h1>Question Result</h1>
+                    <img src="{{url_for('static', filename='assets/images/images.png')}}" class="squareImage">
+                </div>
+            </a>
+        </div>
+    </div>
+    <div align="center">
+        <div style="width: fit-content">
+            <a href="{{ url_for('admin.createQuestion') }}" target="_top">
+                <div class="rectangle" style = "float:left; overflow: auto" >
+                    <h1>Empty</h1>
+                    <img src="{{url_for('static', filename='assets/images/images.png')}}" class="squareImage">
+                </div>
+            </a>
+            <a href="{{ url_for('admin.createQuestion') }}" target="_top">
+                <div class="rectangle" style = "float:right; overflow: auto;" >
+                    <h1>Empty</h1>
+                    <img src="{{url_for('static', filename='assets/images/images.png')}}" class="squareImage">
+                </div>
+            </a>
+        </div>
+    </div>
+{% endblock %}
