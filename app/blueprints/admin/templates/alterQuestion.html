@@ -1,7 +1,15 @@
-<html>
+{% extends "base.html" %}
+
+{% block title %} Alter Question {% endblock %}
+
+{% block head %}
+
     <head>
-        <link rel="stylesheet" type="text/css" href="../static/assets/css/alterQuestionStyles.css">  
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>        
+
+        <link rel="stylesheet" type="text/css" href="../static/assets/css/alterQuestionStyles.css">
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <link rel="stylesheet" type = "text/css" href="{{ url_for('static', filename='assets/css/style.css') }}">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script>
             // $ in front = something with jQueary
             $(document).ready(init); // .ready() means that when the document is ready, call my init() function
@@ -30,6 +38,9 @@
             }
         </script>
     </head>
+{% endblock %}
+
+{% block content %}
     <body>
         <title>Alter Question</title>
         <h1 style="text-align: center">Questions:</h1>
@@ -77,6 +88,7 @@
                 <span class="close">&times;</span>
                 <p style="text-align: center">Edit Question Content</p>
                 <form style="text-align: center">
+                    <br><br>
                     New Question Title:
                     <input type="text" name="newTitle">
                     <br><br>
@@ -93,8 +105,9 @@
                     <input type="text" name="newFourth">
                     <br><br>
                     <button type="submit">Save Changes</button>
+                    <br><br>
                 </form>
             </div>
         </div>
     </body>
-</html>
+{% endblock %}
