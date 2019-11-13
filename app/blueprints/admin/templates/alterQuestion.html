@@ -43,7 +43,18 @@
 {% block content %}
     <body>
         <title>Alter Question</title>
-        <h1 style="text-align: center">Questions:</h1>
+
+
+        <h1 style="text-align: center">Please Select Survey:</h1>
+
+        <div class="form-group" style="text-align: center">
+            <select class="form-control" id="sel1" name="surveyToModify">
+                <option>(Please select a survey)</option>
+                <option value="test">test</option>
+            </select>
+        </div>
+
+        <h1 style="text-align: center">Questions for Selected Survey:</h1>
         <table style="width:50% " id="t01">
             <tr>
                 <th>Question Number</th>
