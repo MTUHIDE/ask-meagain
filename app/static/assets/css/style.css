@@ -142,6 +142,26 @@ button.button {
 	width: 95vw;
 }
 
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: center;
+}
+table {
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing: 5px;
+}
+table#t01 tr:nth-child(even) {
+    background-color: lightgray
+}
+table#t01 tr:nth-child(odd) {
+    background-color: white
+}
+
 /* CSS for the Modal */
 
 /* The Modal (background) */
@@ -187,7 +207,7 @@ button.button {
 
 /* The Close Button */
 .close {
-  color: white;
+  color: black;
   float: right;
   font-size: 28px;
   font-weight: bold;
