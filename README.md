@@ -1,5 +1,8 @@
 # ask-meagain
 
+This is legacy code for using askmeagain with flask, we have no moved to Django and are developing with that.
+
+
 ALOT of work needs to be done here, and this is about as basic as it can get, but here's a starting place
 To run the application you need to:
 
