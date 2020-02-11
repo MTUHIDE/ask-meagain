@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # admin_back and polls are our custom created apps
+    # It is named admin_back because I have encountered some conflicts since Django has its own admin app
+    'admin_back',
+    'polls'
 ]
 
 MIDDLEWARE = [
@@ -55,9 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'templates'),
-            '../polls/templates',
-            '../admin_back/templates'
+            os.path.join(BASE_DIR, 'templates')
         ]
         ,
         'APP_DIRS': True,
