@@ -8,6 +8,10 @@ def index(request):
     context = {}
 
     return render(request, 'admin_back/index.html', context)
+def loginauth(request):
+    context = {}
+    return render(request, 'admin_back/loginauth.html', context)
+
 
 def create_question(request, survey_id):
     context = {}
