@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body{
+        font-family: Open Sans;
+        text-align: center;
+        }
+    input{
+        font-size: 20px;
+    }
+    input::placeholder {
+         text-align: center;
+    }
+    button{
+        font-size: 20px;
+        color: black;
+        background-color: rgb(252,206,1);
+        border: solid black 2px;
+        transition: 0.3s;
+         width: 245px;
+    }
+    .button:hover {
+        color: white;
+        background-color: black;
+        text-decoration: underline;
+    }
+    input{
+        border: solid black 2px;
+    }
+    .wrapper{
+        width: 100%;
+        background-color: black;
+    }
+    .top-banner{
+        display: table-cell;
+        padding-top: 7px;
+        padding-left: 7px;
+        padding-right: 17px;
+        color: rgb(252,206,1);
+        font-size: 30px;
+        font-weight: bold;
+        vertical-align: middle;
+    }
+    .welcome{
+        margin-top: 20px;
+        font-size: 40px;
+    }
+    .text{
+        margin-top: 10px;
+        font-size: 20px;
+    }
+    .login{
+        margin-top: 20px;
+        }
+    .logo{
+        width: 60px;
+    }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>Voting Booth Backend</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="top-banner">
+            <img class ="logo" src = "HuskyIcon_OneColor_Gold.png">
+        </div>
+        <div class="top-banner" style="padding-bottom: 7px">
+            Voting Booth Admin Page
+        </div>
+    </div>
+    <div class="welcome" style="margin-top: 20px">
+        Welcome!
+    </div>
+    <div class="text" style="margin-bottom: 25px; margin-top: 25px">
+        Sign in using your Michigan Tech email
+    </div>
+    <div class="login">
+     <input placeholder="user@mtu.edu" tabindex=1>
+    </div>
+    <div>
+     <input type="password" placeholder="Password" style="margin-top: 20px" tabindex=2>
+    </div>
+    <div>
+     <button class="button" style="margin-top: 20px;" tabindex=3>
+        Login
+     </button>
+    </div>
+    <button class="button" style="font-size:20px; margin-top: 20px;" tabindex=4>
+        Authenticate New User
+    </button>
+</body>
+</html>

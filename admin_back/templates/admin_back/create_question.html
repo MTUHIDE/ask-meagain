@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<title>Voting Booth</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+<body class="w3-light-grey">
+
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32">
+  <h1><b>Create Question</b></h1>
+  <p>Survey: <span class="w3-tag">unknown</span></p>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+<div class="w3-col">
+  <div class="w3-card-4 w3-margin w3-white">
+    <div id="divchoice" class="w3-container">
+      <h3><b>
+          <form class="w3-container">
+              <input class="w3-input" type="text" placeholder="Write the question here">
+          </form>
+      </b></h3>
+        <form id="choice1" class="w3-container" style="display: block">
+              <input class="w3-input" type="text" placeholder="Choice 1">
+              <input class="w3-input" type="text" placeholder="Choice 2">
+              <input class="w3-input" type="text" placeholder="Choice 3">
+              <input class="w3-input" type="text" placeholder="Choice 4">
+        </form>
+          <button id="AddChoice" onclick="AddChoiceField()" class="w3-button w3-margin"><span class="glyphicon glyphicon-plus-sign"></span> Add Choices</button>
+    </div>
+    <div class="w3-row w3-padding-large">
+        <b2>Answer Type: </b2>
+       <input class="w3-radio" type="radio" name="answertype" value="button" checked>
+       <label>Button</label>
+       <input class="w3-radio" type="radio" name="answertype" value="checkbox">
+       <label>Checkbox</label>
+    </div>
+    <div class="w3-container">
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>Submit</b></button></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+</div>
+</div><br>
+</div>
+
+</body>
+</html>
