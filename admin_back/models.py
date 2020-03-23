@@ -26,7 +26,7 @@ class Question(models.Model):
     type = models.IntegerField(choices=QuestionTypes.choices(), default=QuestionTypes.RADIO)
 
     def __str__(self):
-        return self.survey + ": " + self.text
+        return self.text
 
 
 class Choice(models.Model):
@@ -36,7 +36,7 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.survey + ": " + self.question + ": " + self.text
+        return ": " + self.text
 
 
 class Taken(models.Model):

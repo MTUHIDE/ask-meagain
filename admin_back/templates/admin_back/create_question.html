@@ -20,7 +20,7 @@
     <!-- Header -->
     <header class="w3-container w3-center w3-padding-32">
         <h1><b>Create Question</b></h1>
-        <p>Survey: <span class="w3-tag">unknown</span></p>
+        <p>Survey: <span class="w3-tag">{{ survey_id }}</span></p>
     </header>
 
     <!-- Grid -->
@@ -28,10 +28,12 @@
         <div class="w3-col">
             <div class="w3-card-4 w3-margin w3-white">
                 <div id="divchoice" class="w3-container">
-                    <form class="w3-container">
-                        <h3><input class="w3-input" type="text" placeholder="Write the question here"></h3>
-                        <input class="w3-input" type="text" placeholder="Choice 1">
-                        <input class="w3-input" type="text" placeholder="Choice 2">
+                    <form class="w3-container" method="post" action="">
+                        {% csrf_token %}
+                        <h3><input class="w3-input" type="text" name="questiontext"
+                                   placeholder="Write the question here"></h3>
+                        <input class="w3-input" type="text" name="choice1text" placeholder="Choice 1">
+                        <input class="w3-input" type="text" name="choice2text" placeholder="Choice 2">
 
                         <div class="w3-row w3-padding-large">
                             <button id="AddChoice" onclick="AddChoiceField()" class="w3-button w3-margin"><span
@@ -39,7 +41,7 @@
                             </button>
                             <br>
                             <b2>Answer Type:</b2>
-                            <input class="w3-radio" type="radio" name="answertype" value="button" checked>
+                            <input class="w3-radio" type="radio" name="answertype" value="radio" checked>
                             <label>Radio</label>
                             <input class="w3-radio" type="radio" name="answertype" value="checkbox">
                             <label>Checkbox</label>
