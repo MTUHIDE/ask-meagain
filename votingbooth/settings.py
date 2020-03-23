@@ -37,8 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # admin_back and polls are our custom created apps
     # It is named admin_back because I have encountered some conflicts since Django has its own admin app
+    'social_django',
     'admin_back',
-    'polls'
+    'polls',
 ]
 
 MIDDLEWARE = [
@@ -67,6 +68,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -125,3 +128,15 @@ STATICFILES_DIRS = [
     #'polls/static/polls',
     #'admin_back/static/admin_back',
 ]
+
+
+AUTHENTICATION_BACKENDS=(
+    'social_core.backends.google.GoogleOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+)
+#google o-auth client id and secret key
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'secret key'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'client id'
+
+LOGIN_REDIRECT_URL = "/"

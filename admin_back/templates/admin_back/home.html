@@ -61,6 +61,7 @@
     <title>Voting Booth Backend</title>
 </head>
 <body>
+
     <div class="wrapper">
         <div class="top-banner">
             <img class ="logo" src = "HuskyIcon_OneColor_Gold.png">
@@ -89,5 +90,6 @@
     <button class="button" style="font-size:20px; margin-top: 20px;" tabindex=4>
         Authenticate New User
     </button>
+    <a href="{% url 'social:begin' 'google-oauth2' %}">Google Login</a>
 </body>
 </html>
