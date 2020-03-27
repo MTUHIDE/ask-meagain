@@ -13,6 +13,17 @@ class QuestionTypes(IntEnum):
 # end enumerator
 
 
+# another enumerator to represent if a question is active or not
+class QuestionState(IntEnum):
+    INACTIVE = 0;
+    ACTIVE = 1;
+
+    @classmethod
+    def choices(cls):
+        return [(key.value, key.name) for key in cls]
+# end enumerator
+
+
 class Survey(models.Model):
     title = models.CharField(max_length=60)
 
@@ -24,9 +35,10 @@ class Question(models.Model):
     survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
     text = models.CharField(max_length=300)
     type = models.IntegerField(choices=QuestionTypes.choices(), default=QuestionTypes.RADIO)
+    state = models.IntegerField(choices=QuestionState.choices(), default=QuestionState.ACTIVE)
 
     def __str__(self):
-        return self.text
+        return self.text + ": " + str(self.type)
 
 
 class Choice(models.Model):

@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.template import loader
 
 from .forms import QuestionForm
-from .models import Question, Choice, QuestionTypes, Survey
+from .models import Question, Choice, Survey, QuestionTypes
 
 
 def index(request):
@@ -25,8 +25,13 @@ def create_question(request, survey_id):
             question = Question()
             question.survey = Survey.objects.get(id=survey_id)
             question.text = form.cleaned_data['questiontext']
-            # THIS IS HARD CODED FOR NOW
-            question.type = QuestionTypes.RADIO
+
+            # parses which question type was chosen
+            qtype = form.cleaned_data['answertype']
+            if qtype.__eq__('radio'):
+                question.type = QuestionTypes.RADIO
+            elif qtype.__eq__('checkbox'):
+                question.type = QuestionTypes.CHECKBOX
 
             choice1 = Choice()
             choice1.survey = Survey.objects.get(id=survey_id)
