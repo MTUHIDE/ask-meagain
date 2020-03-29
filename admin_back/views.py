@@ -5,7 +5,6 @@ from django.template import loader
 from .forms import QuestionForm
 from .models import Question, Choice, Survey, QuestionTypes
 
-
 def index(request):
     context = {}
     return render(request, 'admin_back/index.html', context)
