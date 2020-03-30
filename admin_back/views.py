@@ -1,8 +1,8 @@
 from django.http import HttpResponse, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.template import loader
 
-from .forms import QuestionForm
+from .forms import QuestionForm, SurveyForm
 from .models import Question, Choice, Survey, QuestionTypes
 
 
@@ -14,6 +14,22 @@ def index(request):
 def loginauth(request):
     context = {}
     return render(request, 'admin_back/loginauth.html', context)
+
+
+def create_survey(request):
+    if request.method == 'POST':
+        form = SurveyForm(request.POST)
+
+        if form.is_valid():
+            survey = Survey()
+            survey.title = form.cleaned_data['survey_name']
+
+            survey.save()
+
+            return redirect('admin_back:create_question', survey_id=survey.id)
+
+    context = {}
+    return render(request, 'admin_back/create_survey.html', context)
 
 
 def create_question(request, survey_id):

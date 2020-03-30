@@ -9,6 +9,6 @@ urlpatterns = [
     path('login/', views.loginauth, name='loginauth'),
     path('home', views.home, name='home'),
     path('create_question/<int:survey_id>/', views.create_question, name='create_question'),
-    path('form_test', views.form_test, name='form_test'),
+    path('create_survey/', views.create_survey, name='create_survey')
 
 ]
