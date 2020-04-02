@@ -1,0 +1,45 @@
+.wrapper{
+    width: 100%;
+    background-color: black;
+}
+.top-banner{
+    display: table-cell;
+    padding: 5px;
+    color: rgb(252,206,1);
+    font-size: 30px;
+    font-weight: bold;
+    vertical-align: middle;
+}
+.logo{
+    width: 60px;
+}
+input{
+    font-size: 20px;
+}
+button{
+    font-size: 20px;
+    color: black;
+    background-color: rgb(252,206,1);
+    border: solid black 2px;
+    transition: 0.3s;
+    width: 245px;
+    }
+.button:hover {
+    color: white;
+    background-color: black;
+    text-decoration: underline;
+}
+input{
+    border: solid black 2px;
+}
+.welcome{
+    margin-top: 20px;
+    font-size: 40px;
+}
+.text{
+    margin-top: 10px;
+    font-size: 20px;
+}
+.login{
+    margin-top: 20px;
+}
