@@ -1,3 +1,7 @@
+
+{% extends 'admin_back/base.html' %}
+
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <style>
@@ -61,15 +65,15 @@
     <title>Voting Booth Backend</title>
 </head>
 <body>
-
-    <div class="wrapper">
-        <div class="top-banner">
-            <img class ="logo" src = "HuskyIcon_OneColor_Gold.png">
-        </div>
-        <div class="top-banner" style="padding-bottom: 7px">
-            Voting Booth Admin Page
-        </div>
-    </div>
+{#    removing as this is provided by base now#}
+{#    <div class="wrapper">#}
+{#        <div class="top-banner">#}
+{#            <img class ="logo" src = "HuskyIcon_OneColor_Gold.png">#}
+{#        </div>#}
+{#        <div class="top-banner" style="padding-bottom: 7px">#}
+{#            Voting Booth Admin Page#}
+{#        </div>#}
+{#    </div>#}
     <div class="welcome" style="margin-top: 20px">
         Welcome!
     </div>
@@ -90,9 +94,12 @@
     <button class="button" style="font-size:20px; margin-top: 20px;" tabindex=4>
         Authenticate New User
     </button>
-     <p>-- OR -- </p>
+<br><br>
+     <p> -- OR -- </p>
     <a href="{% url 'social:begin' 'google-oauth2'%}">
-        <button type="button" name="button" class="btn btn.danger">Google Login</button>
+        <button type="button" name="button" class="button" style="font-size:20px; margin-top: 20px;" tabindex=4>Google Login</button>
     </a>
 </body>
 </html>
+
+{% endblock %}
