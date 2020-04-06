@@ -1,0 +1,75 @@
+{% extends 'admin_back/base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Title bar Dashboard -->
+    <nav class="navbar navbar-light bg-light">
+         <span class="navbar-brand mb-0 h1"><H1>Dashboard</H1></b></span>
+    </nav>
+<!-- Card view -->
+
+<div class="container">
+    <div class="row">
+     <div class="col-sm-3">
+        <div class="card" style="width:250px">
+             <img class="card-img-top" src="{% static 'admin_back/assets/HuskyIcon_OneColor_Gold.png'%}" alt="Card image" style="width:100%">
+             <div class="card-body">
+             <h4 class="card-title">Create Survey</h4>
+             <p class="card-text">Write something describing Create survey</p>
+             <a href="#" class="btn btn-dark">View details</a>
+             </div>
+        </div>
+     </div>
+
+    <div class="col-sm-3">
+        <div class="card" style="width:250px">
+            <img class="card-img-top" src="{% static 'admin_back/assets/HuskyIcon_OneColor_Gold.png'%}" alt="Card image" style="width:100%">
+            <div class="card-body">
+            <h4 class="card-title">Create Question</h4>
+            <p class="card-text">Write something describing Create Question</p>
+            <a href="#" class="btn btn-dark">View details</a>
+            </div>
+         </div>
+    </div>
+
+      <div class="col-sm-3">
+         <div class="card" style="width:250px">
+            <img class="card-img-top" src="{% static 'admin_back/assets/HuskyIcon_OneColor_Gold.png'%}" alt="Card image" style="width:100%">
+            <div class="card-body">
+            <h4 class="card-title">Check Active Questions</h4>
+            <p class="card-text">Write something describing "what is active question?"</p>
+            <a href="#" class="btn btn-dark">View details</a>
+         </div>
+        </div>
+      </div>
+
+      <div class="col-sm-3">
+         <div class="card" style="width:250px">
+            <img class="card-img-top" src="{% static 'admin_back/assets/HuskyIcon_OneColor_Gold.png'%}" alt="Card image" style="width:100%">
+            <div class="card-body">
+            <h4 class="card-title">Check Results</h4>
+            <p class="card-text">Write something describing results</p>
+            <a href="#" class="btn btn-dark">View details</a>
+         </div>
+        </div>
+      </div>
+    </div>
+    </div>
+</body>
+</html>
+{% endblock %}
