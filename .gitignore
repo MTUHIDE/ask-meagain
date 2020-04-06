@@ -7,3 +7,5 @@ lib
 lib64
 pyvenv.cfg
 *.egg-info
+admin_back/migrations
+polls/migrations
