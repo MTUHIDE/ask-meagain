@@ -9,6 +9,9 @@ def index(request):
     context = {}
     return render(request, 'admin_back/index.html', context)
 
+def dashboard(request):
+    context = {}
+    return render(request, 'admin_back/dashboard.html', context)
 
 def loginauth(request):
     context = {}
@@ -71,7 +74,6 @@ def home(request):
     context = {}
     return render(request, 'admin_back/home.html', context)
 
-
 def form_test(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST)
@@ -85,3 +87,4 @@ def form_test(request):
 
     context = {'form': form}
     return render(request, 'admin_back/form_test.html', context)
+
