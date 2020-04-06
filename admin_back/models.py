@@ -25,7 +25,7 @@ class QuestionState(IntEnum):
 
 
 class Survey(models.Model):
-    title = models.CharField(max_length=60)
+    title = models.CharField(max_length=60, unique=True)
 
     def __str__(self):
         return self.title

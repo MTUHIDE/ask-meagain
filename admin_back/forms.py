@@ -16,6 +16,10 @@ from django import forms
 """
 
 
+class SurveyForm(forms.Form):
+    survey_name = forms.CharField(label='Survey name', max_length=300)
+
+
 class QuestionForm(forms.Form):
     questiontext = forms.CharField(label='Question text', max_length=200)
 
