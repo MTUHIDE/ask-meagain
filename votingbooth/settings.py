@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 ]
 
 ROOT_URLCONF = 'votingbooth.urls'
@@ -135,8 +136,7 @@ AUTHENTICATION_BACKENDS=(
     'django.contrib.auth.backends.ModelBackend',
 )
 #google o-auth client id and secret key
+LOGIN_REDIRECT_URL = '/'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'secret key'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'client id'
-
-LOGIN_REDIRECT_URL = "/"
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'client Id for google'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'secret key for google'
