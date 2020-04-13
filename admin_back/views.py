@@ -88,3 +88,5 @@ def form_test(request):
     context = {'form': form}
     return render(request, 'admin_back/form_test.html', context)
 
+def redirect_to_home(request):
+    return HttpResponseRedirect('admin')

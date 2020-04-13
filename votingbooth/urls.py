@@ -17,7 +17,7 @@ urlpatterns = [
     #url(r'^disconnect/(?P<backend>[^/]+)/(?P<association_id>\d+){0}$'.format(extra), views.disconnect, name='disconnect_individual'),
     # url(r'^',include('django.contrib.auth.urls')),
     url(r'^oauth/', include('social_django.urls', namespace='social')),
-    path('', views.home, name='home'),
+    url(r'^$', views.redirect_to_home),
     path('admin/', include('admin_back.urls')),
     path('polls/', include('polls.urls')),
 
