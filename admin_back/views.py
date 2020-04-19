@@ -9,6 +9,10 @@ def index(request):
     context = {}
     return render(request, 'admin_back/index.html', context)
 
+def registeration(request):
+    context = {}
+    return render(request, 'admin_back/user_registration.html', context)
+
 def dashboard(request):
     context = {}
     return render(request, 'admin_back/dashboard.html', context)
