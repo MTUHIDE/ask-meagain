@@ -16,12 +16,25 @@
 
     <body>
         <div class="wrapper">
-            <div class="top-banner">
-                {% load static %}
-                    <img class ="logo" src ="{% static 'admin_back/assets/HuskyIcon_OneColor_Gold.png'%}">
+            <a class="top-banner" style="text-decoration: none" href="/">
+                <div class="top-banner">
+                    <img class ="logo" href="/" src ="{% static 'admin_back/assets/HuskyIcon_OneColor_Gold.png'%}">
+                </div>
+                <div class="top-banner" style="padding-bottom: 7px">
+                    Voting Booth
+                </div>
+            </a>
+            <div class="top-banner" style="width:1000px">
             </div>
-            <div class="top-banner" style="padding-bottom: 7px">
-                Voting Booth
+            <div class="top-banner">
+                <a class="top-banner" style="font-size: 20px; text-decoration: none" href="/admin/dashboard">
+                    Dashboard
+                </a>
+            </div>
+            <div class="top-banner">
+                <a class="top-banner" style="font-size: 20px; text-decoration: none" href="/">
+                    Signout
+                </a>
             </div>
         </div>
     {% block content %}
