@@ -37,6 +37,10 @@ def create_survey(request):
     context = {}
     return render(request, 'admin_back/create_survey.html', context)
 
+def manage_question(request, survey_id):
+    context = {}
+    return render(request, 'admin_back/manageQuestions.html', context)
+
 
 def create_question(request, survey_id):
     if request.method == 'POST':
@@ -78,6 +82,7 @@ def home(request):
     context = {}
     return render(request, 'admin_back/home.html', context)
 
+
 def form_test(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST)
@@ -91,6 +96,5 @@ def form_test(request):
 
     context = {'form': form}
     return render(request, 'admin_back/form_test.html', context)
-
 def redirect_to_home(request):
     return HttpResponseRedirect('admin')

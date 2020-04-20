@@ -1,0 +1,41 @@
+{% extends 'admin_back/base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Questions Page</title>
+</head>
+<br>
+<div id="Question">Questions go here:</div>
+<label for="active1">active</label>
+<input type="checkbox" value="active" id="active1">
+<input type="text" value="Question" readonly/>
+<button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_question/1/'">edit</button>
+<input type="button" value="delete" onclick=""/><br/>
+
+
+
+<label for="active2">active</label>
+<input type="checkbox" value="active" id="active2">
+<input type="text" value="Question" readonly/>
+<button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_question/1/'">edit</button>
+<input type="button" value="delete" onclick=""/><br/>
+
+<label for="active3">active</label>
+<input type="checkbox" value="active" id="active3">
+<input type="text" value="Question" readonly/>
+<button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_question/1/'">edit</button>
+<input type="button" value="delete" onclick=""/><br/>
+
+<input type="button" value="add question" onclick=""/>
+
+
+
+</body>
+</html>
+{% endblock %}
