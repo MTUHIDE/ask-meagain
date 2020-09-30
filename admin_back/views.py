@@ -43,13 +43,15 @@ def manage_question(request, survey_id):
 
 
 def create_question(request, survey_id):
+    survey = Survey.objects.get(id=survey_id)
+    survey_name = survey.title
     if request.method == 'POST':
         form = QuestionForm(request.POST)
 
         if form.is_valid():
             # submit question data to database
             question = Question()
-            question.survey = Survey.objects.get(id=survey_id)
+            question.survey = survey
             question.text = form.cleaned_data['questiontext']
 
             # parses which question type was chosen
@@ -60,12 +62,12 @@ def create_question(request, survey_id):
                 question.type = QuestionTypes.CHECKBOX
 
             choice1 = Choice()
-            choice1.survey = Survey.objects.get(id=survey_id)
+            choice1.survey = survey
             choice1.question = question
             choice1.text = form.cleaned_data['choice1text']
 
             choice2 = Choice()
-            choice2.survey = Survey.objects.get(id=survey_id)
+            choice2.survey = survey
             choice2.question = question
             choice2.text = form.cleaned_data['choice2text']
 
@@ -73,7 +75,7 @@ def create_question(request, survey_id):
             choice1.save()
             choice2.save()
 
-    context = {'survey_id': survey_id}
+    context = {'survey_name': survey_name}
     template = loader.get_template('admin_back/create_question.html')
     return HttpResponse(template.render(context, request))
 
