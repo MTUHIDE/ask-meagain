@@ -1,0 +1,44 @@
+{% extends 'admin_back/base.html' %}
+
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Surveys Page</title>
+</head>
+<body>
+    <br>
+    <div id="Question">Surveys:</div>
+    <label for="active1" style="width: 100px"></label>
+    <input type="radio" value="active" id="active1" name="active">
+    <input type="text" value="Survey" readonly/>
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_survey/'">edit</button>
+    <input type="button" value="delete" onclick=""/><br/>
+
+
+    <br>
+    <label for="active2" style="width: 100px">Active:</label>
+    <input type="radio" value="active" id="active2", name="active">
+    <input type="text" value="Survey" readonly/>
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_survey/'">edit</button>
+    <input type="button" value="delete" onclick=""/><br/>
+
+    <br>
+    <label for="active3" style="width: 100px"></label>
+    <input type="radio" value="active" id="active3", name="active">
+    <input type="text" value="Survey" readonly/>
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_survey/'">edit</button>
+    <input type="button" value="delete" onclick=""/><br/>
+
+    <br>
+    <label for="ManageQuestions" style="width: 116px"></label>
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/manage_question/1/'"/>Manage Questions Page</button>
+    </br>
+
+
+</body>
+</html>
+
+{% endblock %}
