@@ -37,6 +37,10 @@ def create_survey(request):
     context = {}
     return render(request, 'admin_back/create_survey.html', context)
 
+def manage_survey(request):
+    context = {}
+    return render(request, 'admin_back/manage_survey.html', context)
+
 def manage_question(request, survey_id):
     context = {}
     return render(request, 'admin_back/manageQuestions.html', context)
