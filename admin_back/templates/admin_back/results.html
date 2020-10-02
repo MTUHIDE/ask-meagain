@@ -1,0 +1,41 @@
+{% extends 'admin_back/base.html' %}
+
+{% block content %}
+<head>
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+</head>
+
+<body>
+<h2>Survey Table</h2>
+ <table>
+     <tr>
+         <th>Survey Name</th>
+         <th>Question</th>
+         <th>Response</th>
+     </tr>
+     <tr>
+         <td>{% for s in detail %}</td>
+             <td>{{ s.survey }}</td>
+             <td>{%if s.question != None and s.text != '' %}{{ s.question }}{% else %}Question does not exist{% endif %}</td>
+             <td>{{ s.text }}</td>
+             </tr>
+       {% endfor %}
+ </table>
+</body>
+{% endblock %}

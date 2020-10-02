@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template import loader
+from django.http import JsonResponse
 
 from .forms import QuestionForm, SurveyForm
 from .models import Question, Choice, Survey, QuestionTypes
@@ -21,6 +22,9 @@ def loginauth(request):
     context = {}
     return render(request, 'admin_back/loginauth.html', context)
 
+def forgotpass(request):
+    context = {}
+    return render(request, 'admin_back/forgot_password.html', context)
 
 def create_survey(request):
     if request.method == 'POST':
@@ -104,3 +108,24 @@ def form_test(request):
     return render(request, 'admin_back/form_test.html', context)
 def redirect_to_home(request):
     return HttpResponseRedirect('admin')
+
+'''
+def results(request):
+   obj = Choice.objects.get(id=1)
+   context = {
+            'survey': obj.survey,
+            'question': obj.question,
+            'text': obj.text,
+            'votes': obj.votes,
+          }
+   
+   return render(request, 'admin_back/results.html', context)
+'''
+def results(request):
+    Choice.objects.all()
+    info = Choice.objects.all()
+    print(info)
+    resultdata = {'detail': info}
+    print(resultdata)
+    print(request)
+    return render(request, 'admin_back/results.html', resultdata)
