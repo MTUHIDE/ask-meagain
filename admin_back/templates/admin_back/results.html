@@ -27,17 +27,17 @@ tr:nth-child(even) {
      <tr>
          <th>Survey Name</th>
          <th>Question</th>
-         <th>Response</th>
+         <th>Responded Yes</th>
+         <th>Responded No</th>
      </tr>
      <tr>
-
          {% for s in detail %}
              <td>{{ s.survey }}</td>
              <td>{%if s.question != None and s.text != '' %}{{ s.question }}{% else %}Question does not exist{% endif %}</td>
-             <td>{{ s.text }}</td>
+             <td>{{ s.votes }}</td>
+             <td>{{ s.votes }}</td>
              </tr>
        {% endfor %}
-
  </table>
 </body>
 {% endblock %}
