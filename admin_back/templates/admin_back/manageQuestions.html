@@ -6,33 +6,61 @@
 <html lang="en">
 
 
-<head>
-    <meta charset="UTF-8">
-    <title>Manage Questions Page</title>
-</head>
+<header class="w3-container w3-center w3-padding-32">
+        <h1><b>Manage Questions</b></h1>
+        <p>Survey: <span class="w3-tag">{{ survey_name }}</span></p>
+    </header>
+<body>
+
+<h2>Survey Table</h2>
+ <table>
+     <tr>
+         <th>Question</th>
+         <th>Type</th>
+         <th>State</th>
+         <th></th>
+
+     </tr>
+     <tr>
+
+
+         {% for s in detail %}
+                <form method= "post">
+                {% csrf_token %}
+
+                 <td><input type="text" value="{{ s.text }}" name="{{ s.text }}" readonly/></td>
+                 <td>{%if s.type == 1 %} radio {% else %}CheckBox{% endif %}</td>
+                 <td>{%if s.state == 1 %} Active {% else %}Inactive{% endif %}</td>
+                 <td><input type="submit" value= "delete" name="delete"/></td>
+                <input type="hidden" name = s.text>
+                </form>
+
+
+             </tr>
+
+       {% endfor %}
+
+ </table>
+
+</body>
 <br>
 <div id="Question">Questions go here:</div>
 <label for="active1">active</label>
 <input type="checkbox" value="active" id="active1">
 <input type="text" value="Question" readonly/>
 <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_question/1/'">edit</button>
-<input type="button" value="delete" onclick=""/><br/>
+<form method = "post">
+        {% csrf_token %}
+    <input type="button" value="delete" onclick=""/><br/>
+</form>
 
 
+<form method = "post">
+    {% csrf_token %}
+    <input type="submit" value="add question" name="add question"/>
 
-<label for="active2">active</label>
-<input type="checkbox" value="active" id="active2">
-<input type="text" value="Question" readonly/>
-<button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_question/1/'">edit</button>
-<input type="button" value="delete" onclick=""/><br/>
+</form>
 
-<label for="active3">active</label>
-<input type="checkbox" value="active" id="active3">
-<input type="text" value="Question" readonly/>
-<button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_question/1/'">edit</button>
-<input type="button" value="delete" onclick=""/><br/>
-
-<input type="button" value="add question" onclick=""/>
 
 
 
