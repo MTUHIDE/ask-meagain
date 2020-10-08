@@ -30,12 +30,14 @@ tr:nth-child(even) {
          <th>Response</th>
      </tr>
      <tr>
-         <td>{% for s in detail %}</td>
+
+         {% for s in detail %}
              <td>{{ s.survey }}</td>
              <td>{%if s.question != None and s.text != '' %}{{ s.question }}{% else %}Question does not exist{% endif %}</td>
              <td>{{ s.text }}</td>
              </tr>
        {% endfor %}
+
  </table>
 </body>
 {% endblock %}

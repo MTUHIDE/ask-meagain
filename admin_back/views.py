@@ -46,7 +46,20 @@ def manage_survey(request):
     return render(request, 'admin_back/manage_survey.html', context)
 
 def manage_question(request, survey_id):
-    context = {}
+    info = Question.objects.all()
+    survey = Choice.objects.get(id=survey_id)
+    survey_name = survey.survey
+
+    context = {'survey_name': survey_name,
+               'question': survey,
+               'detail': info}
+
+    if request.method == 'POST':
+        if 'add question' in request.POST:
+            return redirect('admin_back:create_question', survey_id)
+        elif 'delete' in request.POST:
+            return redirect('admin_back:create_question', survey_id)
+
     return render(request, 'admin_back/manageQuestions.html', context)
 
 
