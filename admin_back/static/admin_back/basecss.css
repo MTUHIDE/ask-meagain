@@ -1,6 +1,6 @@
 .wrapper{
-    width: 100%;
     background-color: black;
+    display: flex;
 }
 .top-banner{
     display: table-cell;
