@@ -1,4 +1,7 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+from django.forms import ModelForm
 
 """
     Creating a question requires an existing survey, to add one to your database do the following:
@@ -29,3 +32,24 @@ class QuestionForm(forms.Form):
     TYPE_CHOICES = [('radio', 'Radio'), ('checkbox', 'Checkbox')]
     answertype = forms.ChoiceField(choices=TYPE_CHOICES, widget=forms.RadioSelect)
 
+    """
+
+class RegisterForm(forms.Form):
+    first_name = forms.CharField(label='First name', max_length=100)
+    last_name = forms.CharField(label='Last name', max_length=100)
+    emailId = forms.CharField(label='Email ID', max_length=200)
+    password = forms.CharField(label='Password', max_length=200)
+    confirm_password = forms.CharField(label='confirm_password', max_length=200)
+"""
+
+
+class CreateUserForm(UserCreationForm):
+    def clean_email(self):
+        data = self.cleaned_data['email']
+        if "@mtu.edu" not in data:   # any check you need
+            raise forms.ValidationError("Must be a MTU email address")
+        return data
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']

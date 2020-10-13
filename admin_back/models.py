@@ -54,3 +54,14 @@ class Choice(models.Model):
 class Taken(models.Model):
     survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
     student = models.CharField(max_length=20)
+
+"""
+class Newusers(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    emailId = models.CharField(max_length=200)
+    password = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.first_name + ": " + str(self.emailId)
+"""

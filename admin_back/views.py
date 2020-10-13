@@ -1,19 +1,47 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template import loader
+from django.contrib import messages
 from django.http import JsonResponse
+from django.contrib.auth.forms import UserCreationForm
 
-from .forms import QuestionForm, SurveyForm
+
+from .forms import QuestionForm, SurveyForm, UserCreationForm, CreateUserForm
 from .models import Question, Choice, Survey, QuestionTypes
+
 
 def index(request):
     context = {}
     return render(request, 'admin_back/index.html', context)
 
-def registeration(request):
+
+def registration(request):
+    form = CreateUserForm()
+
+    if request.method == "POST":
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('admin_back:home')
+    context = {'form': form}
+    return render(request, 'admin_back/user_registration.html', context)
+
+'''
+def registration(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = Newusers()
+            user.first_name = form.cleaned_data['first_name']
+            user.last_name = form.cleaned_data['last_name']
+            user.emailId = form.cleaned_data['emailId']
+            user.password = form.cleaned_data['password']
+            user.save()']
+
     context = {}
     return render(request, 'admin_back/user_registration.html', context)
 
+'''
 def dashboard(request):
     context = {}
     return render(request, 'admin_back/dashboard.html', context)
