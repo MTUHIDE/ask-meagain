@@ -1,17 +1,16 @@
 {% extends 'admin_back/base.html' %}
 
 {% block content %}
-<head>
-    <title>Login with google auth</title>
+
     {% load static %}
     <link href= "{% static 'admin_back/logincss.css'%}" rel="stylesheet">
-</head>
-<body>
+
+
     <form class="box" action="loginauth.html" method="post">
         <h1> Login</h1>
         <input type="email" placeholder="MTU email">
         <input type="submit" value="Authenticate">
     </form>
-</body>
+
 
 {% endblock %}
