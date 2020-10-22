@@ -4,7 +4,7 @@ from django.template import loader
 from django.contrib import messages
 from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm
-
+from django.contrib.auth import authenticate, logout, login
 
 from .forms import QuestionForm, SurveyForm, UserCreationForm, CreateUserForm
 from .models import Question, Choice, Survey, QuestionTypes
@@ -22,6 +22,8 @@ def registration(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             form.save()
+            user = form.cleaned_data.get('username')
+            messages.success(request, 'Account was created for ' + user)
             return redirect('admin_back:home')
     context = {'form': form}
     return render(request, 'admin_back/user_registration.html', context)
@@ -130,8 +132,26 @@ def create_question(request, survey_id):
 
 
 def home(request):
+
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('admin_back:dashboard')
+        else:
+            messages.info(request, 'Username or password is incorrect')
+            return render(request, 'admin_back/home.html')
     context = {}
     return render(request, 'admin_back/home.html', context)
+
+def logout_User(request):
+    logout(request)
+    messages.info(request, "Logged out successfully!")
+    return redirect('admin_back:home')
+
 
 
 def form_test(request):

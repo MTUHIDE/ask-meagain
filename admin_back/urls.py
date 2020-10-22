@@ -6,6 +6,7 @@ app_name = 'admin_back'
 
 urlpatterns = [
     path('login/', views.loginauth, name='loginauth'),
+    path('logout/', views.logout_User, name='logout'),
     path('', views.home, name='home'),
     path('create_question/<int:survey_id>/', views.create_question, name='create_question'),
     path('create_survey/', views.create_survey, name='create_survey'),

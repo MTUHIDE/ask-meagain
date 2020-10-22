@@ -136,7 +136,9 @@ AUTHENTICATION_BACKENDS=(
     'django.contrib.auth.backends.ModelBackend',
 )
 #google o-auth client id and secret key
+#LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/admin/dashboard/'
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = 'admin/'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'use the google provided details here'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'use the secret key here'
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'client Id for google'
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'secret key for google'

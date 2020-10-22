@@ -29,31 +29,34 @@
     <div class="text" style="margin-bottom: 25px; margin-top: 25px">
         Sign in using your Michigan Tech email
     </div>
+
+    <form method="POST" action="">
+        {% csrf_token %}
     <div class="login">
-     <input placeholder="user@mtu.edu" tabindex=1>
+     <input type="text" name="username" placeholder="username" class="form-row" style="margin-top: 20px" tabindex=1>
     </div>
     <div>
-     <input type="password" placeholder="Password" style="margin-top: 20px" tabindex=2>
+     <input type="password" placeholder="Password" name="password" class="form-row" style="margin-top: 20px" tabindex=2>
     </div>
     <div>
      <button class="button" style="margin-top: 20px;" tabindex=3>
         Login
      </button>
+        {% for message in messages %}
+           <p>{{ message }}</p>
+        {% endfor %}
     </div>
-   <!--  <button class="button" style="font-size:20px; margin-top: 20px;" tabindex=4>
-        Authenticate New User
-    </button>
-     -->
+
     <div>
         <a href="http://127.0.0.1:8000/admin/forgot_password/" class="btn btn-dark" style="margin-left: 140px">Forgot Password?</a>
     </div>
-<br><br>
+
     <!-- <p> -- OR -- </p>
     <a href="{% url 'social:begin' 'google-oauth2'%}">
         <button type="button" name="button" class="button" style="font-size:20px; margin-top: 20px;" tabindex=4>Google Login</button>
     </a>
     -->
-
+    </form>
 
 </body>
 </html>
