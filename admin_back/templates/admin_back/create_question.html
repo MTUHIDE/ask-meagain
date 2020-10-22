@@ -3,10 +3,7 @@
 
 {% block content %}
 
-<!DOCTYPE html>
-<html>
 <title>Voting Booth</title>
-<meta charset="UTF-8">
 <body class="w3-light-grey">
 
 <div class="w3-content" style="max-width:1400px">
@@ -21,7 +18,7 @@
     <div class="w3-row">
         <div class="w3-col">
             <div class="w3-card-4 w3-margin w3-white">
-                <div id="divchoice" class="w3-container">
+                <div id="divchoice" class="w3-container"  style="padding: 10px">
                     <form class="w3-container" method="post" action="">
                         {% csrf_token %}
                         <h3><input class="w3-input" type="text" name="questiontext"
@@ -56,5 +53,5 @@
 </div>
 
 </body>
-</html>
+
 {% endblock %}

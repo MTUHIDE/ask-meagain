@@ -1,11 +1,8 @@
 {% extends 'admin_back/base.html' %}
 
 {% block content %}
-
-<!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
-    <meta charset="UTF-8">
+
     <title>Manage Surveys Page</title>
 </head>
 <body>
@@ -15,18 +12,15 @@
         <p class="text-center">Manage Surveys:</p>
     </h3>
 
-
-
-
     <label for="active1" style  ="width: 380px"></label>
     <input type="radio" value="active" id="active1" name="active">
     <input type="text" value="Survey 1" readonly/>
     <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/manage_question/1/'">edit</button>
     <input type="button" value="delete" onclick=""/> <br/>
 
-    <label for="active2" style="width: 222px"></label>
+    <label for="active2" style="width: 192px"></label>
     <input style="background-color: gold" type="text" value="Active:" readonly/>
-    <input type="radio" value="active" id="active2", name="active">
+    <input type="radio" value="active" id="active2" name="active">
     <input type="text" value="Survey 2" readonly/>
     <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/manage_question/2/'">edit</button>
     <input type="button" value="delete" onclick=""/>
@@ -45,6 +39,5 @@
 
 
 </body>
-</html>
 
 {% endblock %}
