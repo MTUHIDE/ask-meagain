@@ -3,38 +3,44 @@
 {% block content %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Manage Surveys Page</title>
 </head>
 <body>
     <br>
-    <div id="Question">Surveys:</div>
-    <label for="active1" style="width: 100px"></label>
+    <div id="Question"></div>
+    <h3>
+        <p class="text-center">Manage Surveys:</p>
+    </h3>
+
+
+
+
+    <label for="active1" style  ="width: 380px"></label>
     <input type="radio" value="active" id="active1" name="active">
-    <input type="text" value="Survey" readonly/>
-    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_survey/'">edit</button>
-    <input type="button" value="delete" onclick=""/><br/>
+    <input type="text" value="Survey 1" readonly/>
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/manage_question/1/'">edit</button>
+    <input type="button" value="delete" onclick=""/> <br/>
 
-
-    <br>
-    <label for="active2" style="width: 100px">Active:</label>
+    <label for="active2" style="width: 222px"></label>
+    <input style="background-color: gold" type="text" value="Active:" readonly/>
     <input type="radio" value="active" id="active2", name="active">
-    <input type="text" value="Survey" readonly/>
-    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_survey/'">edit</button>
-    <input type="button" value="delete" onclick=""/><br/>
+    <input type="text" value="Survey 2" readonly/>
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/manage_question/2/'">edit</button>
+    <input type="button" value="delete" onclick=""/>
 
     <br>
-    <label for="active3" style="width: 100px"></label>
+    <label for="active3" style="width: 380px"></label>
     <input type="radio" value="active" id="active3", name="active">
-    <input type="text" value="Survey" readonly/>
-    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_survey/'">edit</button>
-    <input type="button" value="delete" onclick=""/><br/>
-
+    <input type="text" value="Survey 3" readonly/>
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/manage_question/3/'">edit</button>
+    <input type="button" value="delete" onclick=""/>
+    <br/>
     <br>
-    <label for="ManageQuestions" style="width: 116px"></label>
-    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/manage_question/1/'"/>Manage Questions Page</button>
+    <label for="ManageQuestions" style="width: 555px"></label>
+    <button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_survey/'">Create New Survey</button>
     </br>
 
 
