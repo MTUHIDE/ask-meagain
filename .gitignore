@@ -9,3 +9,4 @@ pyvenv.cfg
 *.egg-info
 admin_back/migrations
 polls/migrations
+db.sqlite3
