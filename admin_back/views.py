@@ -106,11 +106,11 @@ def create_question(request, survey_id):
             question.text = form.cleaned_data['questiontext']
 
             # parses which question type was chosen
-            qtype = form.cleaned_data['answertype']
-            if qtype.__eq__('radio'):
-                question.type = QuestionTypes.RADIO
-            elif qtype.__eq__('checkbox'):
-                question.type = QuestionTypes.CHECKBOX
+            # qtype = form.cleaned_data['answertype']
+            # if qtype.__eq__('radio'):
+            #     question.type = QuestionTypes.RADIO
+            # elif qtype.__eq__('checkbox'):
+            #     question.type = QuestionTypes.CHECKBOX
 
             choice1 = Choice()
             choice1.survey = survey
@@ -125,6 +125,9 @@ def create_question(request, survey_id):
             question.save()
             choice1.save()
             choice2.save()
+
+            #redirect to manage questions page
+            return redirect('admin_back:manage_question', survey_id=survey.id)
 
     context = {'survey_name': survey_name}
     template = loader.get_template('admin_back/create_question.html')
