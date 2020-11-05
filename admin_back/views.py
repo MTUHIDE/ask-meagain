@@ -1,10 +1,12 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.template import loader
-from django.contrib import messages
+from django.contrib import messages, auth
 from django.http import JsonResponse
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, logout, login
+from django.core.mail import send_mail
+from django.conf import settings
 
 from .forms import QuestionForm, SurveyForm, UserCreationForm, CreateUserForm
 from .models import Question, Choice, Survey, QuestionTypes
@@ -44,17 +46,38 @@ def registration(request):
     return render(request, 'admin_back/user_registration.html', context)
 
 '''
+
+
+def email(request):
+    subject = 'Thank you for registering to our site'
+    message = ' it  means a world to us '
+    email_from = settings.EMAIL_HOST_USER
+    recipient_list = ['receiver@gmail.com',]
+    send_mail(subject, message, email_from, recipient_list)
+    return redirect('redirect to a new page')
+
+
 def dashboard(request):
     context = {}
     return render(request, 'admin_back/dashboard.html', context)
 
+
 def loginauth(request):
     context = {}
     return render(request, 'admin_back/loginauth.html', context)
-
+'''
 def forgotpass(request):
     context = {}
-    return render(request, 'admin_back/forgot_password.html', context)
+    return render(request, 'admin_back/password_reset.html', context)
+
+def password_sent(request):
+    context = {}
+    return render(request, 'admin_back/password_reset_done', context)
+
+def password_done(request):
+    context = {}
+    return render(request, 'admin_back/password_reset_confirm', context)
+'''
 
 def create_survey(request):
     if request.method == 'POST':
@@ -208,7 +231,9 @@ def results(request):
 '''
 def results(request):
     Choice.objects.all()
-    info = Choice.objects.all()
+    info = Choice.objects.all().distinct()
+    #info = Choice.objects.values('question__text').distinct()
+    #info = Choice.objects.all().distinct('question')
     print(info)
     resultdata = {'detail': info}
     print(resultdata)

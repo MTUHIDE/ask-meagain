@@ -3,6 +3,7 @@ from django.urls import include, path
 from admin_back import views
 from django.urls import path, include
 from django.conf.urls import url
+from django.contrib.auth import views as auth_views
 from django.conf import settings
 from social_core.utils import setting_name
 
@@ -20,5 +21,6 @@ urlpatterns = [
     url(r'^$', views.redirect_to_home),
     path('admin/', include('admin_back.urls')),
     path('polls/', include('polls.urls')),
+    path('admin/', include('django.contrib.auth.urls')),
 
 ]

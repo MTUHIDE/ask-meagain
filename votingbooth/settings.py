@@ -29,6 +29,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'social_django',
+    'admin_back',
+    'polls',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,9 +40,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # admin_back and polls are our custom created apps
     # It is named admin_back because I have encountered some conflicts since Django has its own admin app
-    'social_django',
-    'admin_back',
-    'polls',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +75,6 @@ TEMPLATES = [
         },
     },
 ]
-
 WSGI_APPLICATION = 'votingbooth.wsgi.application'
 
 # Database
@@ -138,7 +137,19 @@ AUTHENTICATION_BACKENDS=(
 #google o-auth client id and secret key
 #LOGIN_REDIRECT_URL = 'http://127.0.0.1:8000/admin/dashboard/'
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = 'admin/'
+LOGOUT_REDIRECT_URL = '/'
+#EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+#EMAIL_FILE_PATH = str(BASE_DIR.joinpath('sent_emails'))
+
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = 'use the google provided details here'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'use the secret key here'
+# https://docs.djangoproject.com/en/2.0/ref/settings/#std:setting-EMAIL_FILE_PATH (document for below code)
+# SMTP (simple mail transfer protocol) configuration
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 
+# go to https://myaccount.google.com/lesssecureapps, log in to your account and make 'Allow less secure apps: ON'

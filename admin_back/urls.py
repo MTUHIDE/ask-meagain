@@ -1,6 +1,6 @@
 from django.urls import path
 from admin_back import views
-
+from django.contrib.auth import views as auth_views
 
 app_name = 'admin_back'
 
@@ -16,6 +16,21 @@ urlpatterns = [
     path('manage_question/<int:survey_id>/', views.manage_question, name='manage_question'),
     path('registration/', views.registration, name='user_registration'),
     path('results/', views.results, name='results'),
-    path('forgot_password/', views.forgotpass, name='forgot_password'),
+    path('reset_password/',
+         auth_views.PasswordResetView.as_view(template_name='admin_back/password_reset.html', success_url='/admin/reset_password_sent/'),
+         name="password_reset"
+         ),
+    path('reset_password_sent/',
+         auth_views.PasswordResetDoneView.as_view(template_name='admin_back/password_reset_sent.html'),
+         name='password_reset_done'
+         ),
 
+    path('reset/<uidb64>/<token>/',
+         auth_views.PasswordResetConfirmView.as_view(template_name='admin_back/password_reset_confirm.html', success_url='/admin/reset_password_complete/'),
+         name='password_reset_confirm'
+         ),
+    path('reset_password_complete/',
+         auth_views.PasswordResetCompleteView.as_view(template_name='admin_back/password_reset_complete.html'),
+         name='password_reset_complete'
+         ),
 ]
