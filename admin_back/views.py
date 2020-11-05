@@ -76,19 +76,40 @@ def manage_survey(request):
     return render(request, 'admin_back/manage_survey.html', context)
 
 def manage_question(request, survey_id):
+    survey = Survey.objects.get(id=survey_id)
+    survey_name = survey.title
     info = Question.objects.all()
-    survey = Choice.objects.get(id=survey_id)
-    survey_name = survey.survey
+    choices = Choice.objects.all()
 
-    context = {'survey_name': survey_name,
-               'question': survey,
-               'detail': info}
+    context = {'detail': info,
+               'survey_id': survey_id,
+               'survey_name': survey_name,
+               'choices': choices}
 
     if request.method == 'POST':
         if 'add question' in request.POST:
-            return redirect('admin_back:create_question', survey_id)
+            template = loader.get_template('admin_back/create_question.html')
+            #return HttpResponse(template.render(context, request))
+            return redirect('admin_back:create_question', survey_id=survey.id)
+            #return redirect('admin_back:manage_question', survey_id=survey.id)
+        elif 'edit' in request.POST:
+            data = request.POST
+            id = data.get("qid", "0")
+            before = data.get("replace", "0")
+            holder = Question.objects.get(id=id)
+            holder.text = data.get("replace", "0")
+            after = holder.text
+            holder.save()
+            print(before)
+            print(after)
         elif 'delete' in request.POST:
-            return redirect('admin_back:create_question', survey_id)
+            data = request.POST
+            id = data.get("qid", "0")
+            holder = Question.objects.get(id=id)
+            holder.delete()
+            print(id)
+
+            return render(request, 'admin_back/manageQuestions.html', context)
 
     return render(request, 'admin_back/manageQuestions.html', context)
 

@@ -8,13 +8,16 @@
         <p>Survey: <span class="w3-tag">{{ survey_name }}</span></p>
     </header>
 
-<h2>Survey Table</h2>
+<h2>{{ survey_name }} Questions</h2>
  <table>
      <tr>
+         <th>id</th>
          <th>Question</th>
-         <th>Type</th>
-         <th>State</th>
-         <th></th>
+         <th>replace</th>
+         <th>choice 1</th>
+         <th>choice 2</th>
+         <th>edit</th>
+         <th>delete</th>
 
      </tr>
      <tr>
@@ -23,31 +26,24 @@
          {% for s in detail %}
                 <form method= "post">
                 {% csrf_token %}
+                    <td><input type="text" value="{{ s.id }}" name="{{ s.id }}" readonly/></td>
+                    <td><input type="text" value="{{ s.text }}" name="{{ s.text }}" /></td>
+                    <td><input type="text" value="replace" name="replace" /></td>
+                    {% for i in choices %}
+                    <td><input type="text" value="{{ i.text }}" name="{{ choices }}" readonly/></td>
+                    {% endfor %}
+                    <td>{%if s.state == 1 %} Active {% else %}Inactive{% endif %}</td>
+                    <input type="hidden" value="{{ s.id }}" name="qid"/>
+                    <input type="hidden" value="{{ s.text }}" name="qtext"/>
+                    <td><input type="submit" value= "edit" name="edit"/></td>
+                    <td><input type="submit" value= "delete" name="delete"/></td>
 
-                 <td><input type="text" value="{{ s.text }}" name="{{ s.text }}" readonly/></td>
-                 <td>{%if s.type == 1 %} radio {% else %}CheckBox{% endif %}</td>
-                 <td>{%if s.state == 1 %} Active {% else %}Inactive{% endif %}</td>
-                 <td><input type="submit" value= "delete" name="delete"/></td>
-                <input type="hidden" name = s.text>
                 </form>
-
-
              </tr>
-
        {% endfor %}
-
  </table>
 
-<br>
-<div id="Question">Questions go here:</div>
-<label for="active1">active</label>
-<input type="checkbox" value="active" id="active1">
-<input type="text" value="Question" readonly/>
-<button onclick="window.location.href = 'http://127.0.0.1:8000/admin/create_question/1/'">edit</button>
-<form method = "post">
-        {% csrf_token %}
-    <input type="button" value="delete" onclick=""/><br/>
-</form>
+
 
 
 <form method = "post">
