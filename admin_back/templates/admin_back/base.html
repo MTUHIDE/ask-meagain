@@ -26,6 +26,7 @@
                     Voting Booth
                 </div>
             </a>
+            {% if user.is_authenticated %}
                 <div class="top-banner">
                     <a class="top-banner" style="font-size: 20px; text-decoration: none" href="/admin/dashboard">
                         DASHBOARD
@@ -35,6 +36,9 @@
                         SIGN OUT
                     </a>
                 </div>
+            {% else %}
+            <p> please log in </p>
+            {% endif %}
         </nav>
 
     {% block content %}

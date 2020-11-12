@@ -7,6 +7,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, logout, login
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 from .forms import QuestionForm, SurveyForm, UserCreationForm, CreateUserForm
 from .models import Question, Choice, Survey, QuestionTypes
@@ -47,7 +48,6 @@ def registration(request):
 
 '''
 
-
 def email(request):
     subject = 'Thank you for registering to our site'
     message = ' it  means a world to us '
@@ -56,7 +56,7 @@ def email(request):
     send_mail(subject, message, email_from, recipient_list)
     return redirect('redirect to a new page')
 
-
+@login_required
 def dashboard(request):
     context = {}
     return render(request, 'admin_back/dashboard.html', context)
@@ -78,7 +78,7 @@ def password_done(request):
     context = {}
     return render(request, 'admin_back/password_reset_confirm', context)
 '''
-
+@login_required
 def create_survey(request):
     if request.method == 'POST':
         form = SurveyForm(request.POST)
@@ -94,10 +94,12 @@ def create_survey(request):
     context = {}
     return render(request, 'admin_back/create_survey.html', context)
 
+@login_required
 def manage_survey(request):
     context = {}
     return render(request, 'admin_back/manage_survey.html', context)
 
+@login_required
 def manage_question(request, survey_id):
     survey = Survey.objects.get(id=survey_id)
     survey_name = survey.title
@@ -136,7 +138,7 @@ def manage_question(request, survey_id):
 
     return render(request, 'admin_back/manageQuestions.html', context)
 
-
+@login_required
 def create_question(request, survey_id):
     survey = Survey.objects.get(id=survey_id)
     survey_name = survey.title
@@ -194,13 +196,13 @@ def home(request):
     context = {}
     return render(request, 'admin_back/home.html', context)
 
+@login_required
 def logout_User(request):
     logout(request)
     messages.info(request, "Logged out successfully!")
     return redirect('admin_back:home')
 
-
-
+@login_required
 def form_test(request):
     if request.method == 'POST':
         form = QuestionForm(request.POST)
@@ -229,6 +231,8 @@ def results(request):
    
    return render(request, 'admin_back/results.html', context)
 '''
+
+@login_required
 def results(request):
     Choice.objects.all()
     info = Choice.objects.all().distinct()
