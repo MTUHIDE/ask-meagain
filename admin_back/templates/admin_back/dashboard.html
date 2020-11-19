@@ -1,8 +1,11 @@
 {% extends 'admin_back/base.html' %}
 {% block content %}
 
-{% load static %}
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
     <link rel="stylesheet" href="{% static 'admin_back/dashboard.css' %}">
+{% endblock %}
 
 <!-- Title bar Dashboard -->
 

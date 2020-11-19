@@ -13,11 +13,6 @@ from .forms import QuestionForm, SurveyForm, UserCreationForm, CreateUserForm
 from .models import Question, Choice, Survey, QuestionTypes
 
 
-def index(request):
-    context = {}
-    return render(request, 'admin_back/index.html', context)
-
-
 def registration(request):
     form = CreateUserForm()
 

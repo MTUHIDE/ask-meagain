@@ -1,14 +1,18 @@
 
 {% extends 'admin_back/base.html' %}
 
-{% block content %}
-{% load static %}
+{% block styles %}
+    {{ block.super }}
+    {% load static %}
     <link href= "{% static 'admin_back/basecss.css'%}" rel="stylesheet">
-<style>
-    input::placeholder {
-    text-align: center;
-    }
-</style>
+    <style>
+        input::placeholder {
+            text-align: center;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
 <div style="text-align: center">
 {#    removing as this is provided by base now#}
 {#    <div class="wrapper">#}
