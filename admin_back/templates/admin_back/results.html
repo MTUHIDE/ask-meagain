@@ -32,8 +32,8 @@ tr:nth-child(even) {
          {% for s in detail %}
              <td>{{ s.survey }}</td>
              <td>{%if s.question != None and s.text != '' %}{{ s.question }}{% else %}Question does not exist{% endif %}</td>
-             <td>{{ s.votes }}</td>
-             <td>{{ s.votes }}</td>
+             <td>{{ s.confirms }}</td>
+             <td>{{ s.total - s.confirms }}</td>
              </tr>
        {% endfor %}
  </table>

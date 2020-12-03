@@ -46,16 +46,9 @@ various attributes of the tables.
 |-----------|---------------|----------------|---------------------------------------------------|
 | survey    | Survey        | Foreign Key    | The survey this question belongs to               |
 | text      | String        | max_length=300 | The text of the question                          |
-| type      | QuestionType  |                | DEPRECATED: due to be removed                     |
-| state     | QuestionState |                | Whether the question is active in a survey or not |
-
-####Choice
-| Attribute | Field Type | Properties     | Comments                                                        |
-|-----------|------------|----------------|-----------------------------------------------------------------|
-| survey    | Survey     | Foreign Key    | Survey this choice belongs to                                   |
-| question  | Question   | Foreign Key    | Question this choice belongs to                                 |
-| text      | String     | max_length=300 | The text of the choice                                          |
-| votes     | Integer    | default=0      | A count of how many times this choice has been picked by voters |
+| confirms      | Integer        | default=0 | How many "yes" votes received                       |
+| votes      | Integer        | default=0 | How many total votes received                         |
+| state     | QuestionState | default=ACTIVE               | Whether the question is active in a survey or not |
 
 ####Taken
 | Attribute | Field Type | Properties    | Comments                                             |

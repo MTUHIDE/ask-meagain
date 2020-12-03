@@ -15,7 +15,7 @@ import json
 import requests
 
 from .forms import QuestionForm, SurveyForm, UserCreationForm, CreateUserForm
-from .models import Question, Choice, Survey, QuestionTypes
+from .models import Question, Survey
 
 
 def registration(request):
@@ -119,7 +119,6 @@ def manage_question(request, survey_id):
     survey = Survey.objects.get(id=survey_id)
     survey_name = survey.title
     info = Question.objects.all()
-    choices = Choice.objects.all()
 
     context = {'detail': info,
                'survey_id': survey_id,
@@ -166,26 +165,7 @@ def create_question(request, survey_id):
             question.survey = survey
             question.text = form.cleaned_data['questiontext']
 
-            # parses which question type was chosen
-            # qtype = form.cleaned_data['answertype']
-            # if qtype.__eq__('radio'):
-            #     question.type = QuestionTypes.RADIO
-            # elif qtype.__eq__('checkbox'):
-            #     question.type = QuestionTypes.CHECKBOX
-
-            choice1 = Choice()
-            choice1.survey = survey
-            choice1.question = question
-            choice1.text = form.cleaned_data['choice1text']
-
-            choice2 = Choice()
-            choice2.survey = survey
-            choice2.question = question
-            choice2.text = form.cleaned_data['choice2text']
-
             question.save()
-            choice1.save()
-            choice2.save()
 
             #redirect to manage questions page
             return redirect('admin_back:manage_question', survey_id=survey.id)
@@ -266,10 +246,7 @@ def results(request):
 
 @login_required
 def results(request):
-    Choice.objects.all()
-    info = Choice.objects.all().distinct()
-    #info = Choice.objects.values('question__text').distinct()
-    #info = Choice.objects.all().distinct('question')
+    info = Question.objects.all().distinct()
     print(info)
     resultdata = {'detail': info}
     print(resultdata)
