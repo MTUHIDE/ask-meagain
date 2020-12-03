@@ -18,7 +18,7 @@
 
     <body>
         <nav class="navbar navbar-default navbar-fixed-top justify-content-between" style="background-color: black; padding: 5px">
-             <a class="top-banner" style="text-decoration: none;" href="/">
+             <a class="top-banner" style="text-decoration: none;">
                 <div class="top-banner">
                     <img class ="logo" href="/" src ="{% static 'admin_back/assets/HuskyIcon_OneColor_Gold.png'%}">
                 </div>
@@ -26,18 +26,19 @@
                     Voting Booth
                 </div>
             </a>
+
+
             {% if user.is_authenticated %}
                 <div class="top-banner">
+                    <a class ="top-banner" style="font-size: 20px;text-decoration: none ; white-space: nowrap";>Hello, {{ request.user }}</a>
                     <a class="top-banner" style="font-size: 20px; text-decoration: none" href="/admin/dashboard">
                         DASHBOARD
                     </a>
-                    <a class ="top-banner" style="font-size: 20px;text-decoration: none ; white-space: nowrap">Hello, {{ request.user }}</a>
+
                     <a class="top-banner" style="font-size: 20px; text-decoration: none; white-space: nowrap" href="{% url 'logout' %}">
                         SIGN OUT
                     </a>
                 </div>
-            {% else %}
-            <p> please log in </p>
             {% endif %}
         </nav>
 
