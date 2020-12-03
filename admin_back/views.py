@@ -8,6 +8,11 @@ from django.contrib.auth import authenticate, logout, login
 from django.core.mail import send_mail
 from django.conf import settings
 from django.contrib.auth.decorators import login_required
+from functools import wraps
+
+import urllib
+import json
+import requests
 
 from .forms import QuestionForm, SurveyForm, UserCreationForm, CreateUserForm
 from .models import Question, Choice, Survey, QuestionTypes
@@ -18,11 +23,26 @@ def registration(request):
 
     if request.method == "POST":
         form = CreateUserForm(request.POST)
-        if form.is_valid():
+
+        ''' Begin reCAPTCHA validation '''
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        values = {
+            'secret': settings.RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
+        }
+        data = urllib.parse.urlencode(values).encode()
+        req = urllib.request.Request(url, data=data)
+        response = urllib.request.urlopen(req)
+        result = json.loads(response.read().decode())
+        ''' End reCAPTCHA validation '''
+
+        if form.is_valid() and result['success']:
             form.save()
             user = form.cleaned_data.get('username')
             messages.success(request, 'Account was created for ' + user)
             return redirect('admin_back:home')
+
     context = {'form': form}
     return render(request, 'admin_back/user_registration.html', context)
 
@@ -181,12 +201,29 @@ def home(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
 
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
-            login(request, user)
-            return redirect('admin_back:dashboard')
+        ''' Begin reCAPTCHA validation '''
+        recaptcha_response = request.POST.get('g-recaptcha-response')
+        url = 'https://www.google.com/recaptcha/api/siteverify'
+        values = {
+            'secret': settings.RECAPTCHA_SECRET_KEY,
+            'response': recaptcha_response
+        }
+        data = urllib.parse.urlencode(values).encode()
+        req = urllib.request.Request(url, data=data)
+        response = urllib.request.urlopen(req)
+        result = json.loads(response.read().decode())
+        ''' End reCAPTCHA validation '''
+
+        if result['success']:
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('admin_back:dashboard')
+            else:
+                messages.info(request, 'Username or password is incorrect')
+                return render(request, 'admin_back/home.html')
         else:
-            messages.info(request, 'Username or password is incorrect')
+            messages.error(request, 'Invalid reCAPTCHA. Please try again.')
             return render(request, 'admin_back/home.html')
     context = {}
     return render(request, 'admin_back/home.html', context)
