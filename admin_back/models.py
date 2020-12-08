@@ -2,10 +2,21 @@ from django.db import models
 from enum import IntEnum
 
 
+# enumerator to represent if a survey is active or not
+class SurveyState(IntEnum):
+    INACTIVE = 0
+    ACTIVE = 1
+
+    @classmethod
+    def choices(cls):
+        return [(key.value, key.name) for key in cls]
+# end enumerator
+
+
 # enumerator to represent if a question is active or not
 class QuestionState(IntEnum):
-    INACTIVE = 0;
-    ACTIVE = 1;
+    INACTIVE = 0
+    ACTIVE = 1
 
     @classmethod
     def choices(cls):
@@ -15,6 +26,7 @@ class QuestionState(IntEnum):
 
 class Survey(models.Model):
     title = models.CharField(max_length=60, unique=True)
+    state = models.IntegerField(choices=SurveyState.choices(), default=QuestionState.ACTIVE)
 
     def __str__(self):
         return self.title

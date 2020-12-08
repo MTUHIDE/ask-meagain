@@ -40,6 +40,7 @@ various attributes of the tables.
 | Attribute | Field Type | Comments                 |
 |-----------|------------|--------------------------|
 | title     | string     | Title/name of the survey |
+| state     | integer     | Whether the survey is active or not |
 
 ####Question
 | Attribute | Field Type    | Properties     | Comments                                          |
