@@ -30,7 +30,18 @@
 
             {% if user.is_authenticated %}
                 <div class="top-banner">
-                    <a class ="top-banner" style="font-size: 20px;text-decoration: none ; white-space: nowrap";>Hello, {{ request.user }}</a>
+
+                    <div class="btn-group dropleft">
+                        <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Hello, {{ request.user }}
+                        </button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="http://127.0.0.1:8000/admin/registration/">Add User</a>
+                                    <a class="dropdown-item" href="http://127.0.0.1:8000/admin/update_profile/">Edit User Profile</a>
+                                </div>
+                    </div>
+                   <!-- <a class ="top-banner" style="font-size: 20px;text-decoration: none ; white-space: nowrap";>Hello, {{ request.user }}</a>
+                    -->
                     <a class="top-banner" style="font-size: 20px; text-decoration: none" href="/admin/dashboard">
                         DASHBOARD
                     </a>

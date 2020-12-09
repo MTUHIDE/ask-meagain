@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect
 from django.template import loader
 from django.contrib import messages, auth
 from django.http import JsonResponse
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth import authenticate, logout, login
 from django.core.mail import send_mail
 from django.conf import settings
@@ -45,6 +45,22 @@ def registration(request):
 
     context = {'form': form}
     return render(request, 'admin_back/user_registration.html', context)
+
+def edit_user(request):
+    form = UserChangeForm()
+
+    if request.method == "POST":
+        form = UserChangeForm(request.POST, instance=request.user)
+
+        if form.is_valid():
+            form.save()
+            return redirect('admin_back:dashboard')
+
+    context = {'form': form}
+    return render(request, 'admin_back/update_profile.html', context)
+
+
+
 
 '''
 def registration(request):
@@ -246,7 +262,8 @@ def results(request):
 
 @login_required
 def results(request):
-    info = Question.objects.all().distinct()
+    #info = Question.objects.all().distinct()
+    info = Question.objects.get(id=1)
     print(info)
     resultdata = {'detail': info}
     print(resultdata)
