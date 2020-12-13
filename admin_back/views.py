@@ -139,7 +139,8 @@ def manage_question(request, survey_id):
     context = {'detail': info,
                'survey_id': survey_id,
                'survey_name': survey_name,
-               'choices': choices}
+              # 'choices': choices
+               }
 
     if request.method == 'POST':
         if 'add question' in request.POST:
@@ -262,8 +263,7 @@ def results(request):
 
 @login_required
 def results(request):
-    #info = Question.objects.all().distinct()
-    info = Question.objects.get(id=1)
+    info = Question.objects.all()
     print(info)
     resultdata = {'detail': info}
     print(resultdata)

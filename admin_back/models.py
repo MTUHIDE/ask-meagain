@@ -26,7 +26,7 @@ class QuestionState(IntEnum):
 
 class Survey(models.Model):
     title = models.CharField(max_length=60, unique=True)
-    state = models.IntegerField(choices=SurveyState.choices(), default=QuestionState.ACTIVE)
+    #state = models.IntegerField(choices=SurveyState.choices(), default=QuestionState.ACTIVE)
 
     def __str__(self):
         return self.title
@@ -39,8 +39,8 @@ class Question(models.Model):
     votes = models.IntegerField(default=0)
     state = models.IntegerField(choices=QuestionState.choices(), default=QuestionState.ACTIVE)
 
-    def __str__(self):
-        return self.text + ": " + str(self.type)
+   # def __str__(self):
+      #  return self.text + ": " + str(self.type)
 
 
 class Taken(models.Model):
